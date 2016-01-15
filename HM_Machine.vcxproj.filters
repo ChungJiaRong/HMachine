@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="原始程式檔">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="標頭檔">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="資源檔">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HM_Machine.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="HM_MachineDoc.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="HM_MachineView.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Main.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Compiler.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="HM_Database.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Login.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Administration.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="MFCDLLtest.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="HM_Machine.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="HM_MachineDoc.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="HM_MachineView.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="Compiler.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="HM_Database.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="Login.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="Administration.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HM_Machine.reg" />
+    <None Include="res\HM_Machine.rc2">
+      <Filter>資源檔</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="HM_Machine.rc">
+      <Filter>資源檔</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\HM_MachineDoc.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\HM_Machine.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\Account.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\Eventing.ICO">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\History.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\Mylogo.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\ObjProcess.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\OFFLINE.ICO">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\ONLINE.ICO">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\OnLineBusy.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\OnLineIdle.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\Rotate1.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\Rotate2.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\Rotate3.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\Rotate4.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\Rotate5.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\Rotate6.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\Rotate7.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\Rotate8.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\Save.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\Win.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
