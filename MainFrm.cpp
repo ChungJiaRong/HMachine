@@ -12,13 +12,13 @@
 
 // CMainFrame
 
-IMPLEMENT_DYNCREATE(CMainFrame, CFrameWnd)
+IMPLEMENT_DYNCREATE(CMainFrame, CSkinFrameWnd)
 
-BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
+BEGIN_MESSAGE_MAP(CMainFrame, CSkinFrameWnd)
 	ON_WM_CREATE()
 	ON_WM_SHOWWINDOW()
 	ON_WM_TIMER()
-    ON_WM_PAINT()
+	ON_WM_PAINT()
 END_MESSAGE_MAP()
 
 //狀態列指示器
@@ -49,10 +49,10 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 	// TODO: 在此經由修改 CREATESTRUCT cs 
 	// 達到修改視窗類別或樣式的目的
 	//cs.style = WS_OVERLAPPEDWINDOW;
-    //cs.style &= ~WS_SYSMENU;
+	//cs.style = WS_CAPTION;
+	cs.style &= ~WS_SYSMENU;//關閉系統菜單
 	cs.style &= ~WS_SIZEBOX;//關閉可自由改變大小
 	cs.style &= ~WS_MAXIMIZEBOX;//關閉最大化標示
-    
 	return TRUE;
 }
 
@@ -75,7 +75,7 @@ void CMainFrame::Dump(CDumpContext& dc) const
 
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-	if (CFrameWnd::OnCreate(lpCreateStruct) == -1)
+	if (CSkinFrameWnd::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
 	// TODO:  在此加入特別建立的程式碼
@@ -95,7 +95,7 @@ void CMainFrame::OnPaint()
 					   // 不要呼叫圖片訊息的 CFrameWnd::OnPaint()
 	CRect rect;
 	m_StatusBar.GetItemRect(4, &rect);//獲得欄位矩形大小
-    rect.bottom = rect.bottom - 1;
+	rect.bottom = rect.bottom - 1;
 	if (!m_ProgressCtrl.m_hWnd)
 	{
 		m_ProgressCtrl.Create(WS_CHILD | WS_VISIBLE, rect, &m_StatusBar, IDC_PROGRESS);//創建進度條
@@ -104,24 +104,24 @@ void CMainFrame::OnPaint()
 	{
 		m_ProgressCtrl.MoveWindow(rect);
 	}
-    //m_ProgressCtrl.StepIt();
+	//m_ProgressCtrl.StepIt();
 }
 void CMainFrame::OnShowWindow(BOOL bShow, UINT nStatus)
 {
-	CFrameWnd::OnShowWindow(bShow, nStatus);
+	CSkinFrameWnd::OnShowWindow(bShow, nStatus);
 	// TODO: 在此加入您的訊息處理常式程式碼
 	//SetWindowPos(this, 8, 8, 1024, 768, SWP_NOMOVE);//改變窗口大小
-    MoveWindow(0, 0, 1024, 768);//防止工具列跑掉
-    CenterWindow();//顯示在螢幕中間
+	MoveWindow(0, 0, 1024, 768);//防止工具列跑掉
+	CenterWindow();//顯示在螢幕中間
 }
 /*狀態列時鐘*/
 void CMainFrame::OnTimer(UINT_PTR nIDEvent)
 {
 	// TODO: 在此加入您的訊息處理常式程式碼和 (或) 呼叫預設值
 	if (nIDEvent == 1) {
-        /*系統執行時間更新*/
-        CClientDC dc(this);
-        CString str;
+		/*系統執行時間更新*/
+		CClientDC dc(this);
+		CString str;
 		long t = GetTickCount();
 		str.Format(_T("系統已執行%2d時%2d分%2d秒"),
 			t / 3600000,
@@ -129,13 +129,13 @@ void CMainFrame::OnTimer(UINT_PTR nIDEvent)
 			t % 3600000 % 60000 / 1000);
 		CSize sz = dc.GetTextExtent(str);  //獲取文本寬度
 		m_StatusBar.SetPaneText(2, str);//顯示狀態列時間文字
-        /*時鐘更新*/
-        m_SysTime = CTime::GetCurrentTime();
-        str = m_SysTime.Format("%Y/%m/%d %H:%M:%S");//時間格式化
-        m_StatusBar.SetPaneText(5, str);//顯示狀態列時間文字
+		/*時鐘更新*/
+		m_SysTime = CTime::GetCurrentTime();
+		str = m_SysTime.Format("%Y/%m/%d %H:%M:%S");//時間格式化
+		m_StatusBar.SetPaneText(5, str);//顯示狀態列時間文字
 	}
 	//m_StatusBar.GetStatusBarCtrl().SetIcon(0, AfxGetApp()->LoadIcon(IDI_WORKGLED));
-	CFrameWnd::OnTimer(nIDEvent);
+	CSkinFrameWnd::OnTimer(nIDEvent);
 }
 /*刪除菜單*/
 void CMainFrame::DelAllMenu(HMENU hMenu)
@@ -163,8 +163,7 @@ void CMainFrame::CreateToolBar()
 	m_ToolBar.SetButtons(nArray, 4);//設置按鈕到工具欄上
 	m_ToolBar.SetSizes(CSize(60, 56), CSize(48, 48));//設置工具欄一個按鈕空間大小
 	m_ToolBar.GetToolBarCtrl().SetImageList(&m_TBImageList);//設置按鈕圖片
-	//m_TBImageList.Detach();//釋放img對象
-															
+	//m_TBImageList.Detach();//釋放img對象													
 }
 /*創建StatusBar*/
 void CMainFrame::CreateStatusBar()
@@ -184,11 +183,4 @@ void CMainFrame::CreateStatusBar()
 	}
 	//m_SBImageList.Detach();//釋放img對象
 	//m_StatusBar.GetStatusBarCtrl().SetIcon(0, m_SBImageList.ExtractIcon(0));//設置圖標在狀態欄上  
-}
-/*開啟時直接最大化*/
-void CMainFrame::ActivateFrame(int nCmdShow)
-{
-    // TODO: 在此加入特定的程式碼和 (或) 呼叫基底類別
-    //nCmdShow = SW_SHOWMAXIMIZED;
-    CFrameWnd::ActivateFrame(nCmdShow);
 }

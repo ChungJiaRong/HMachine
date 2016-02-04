@@ -54,7 +54,22 @@
     <ClInclude Include="Administration.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="MFCDLLtest.h">
+    <ClInclude Include="Parameter.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveButton.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="IOState.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinFrameWnd.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="SkinManager.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="BtnST.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
@@ -87,6 +102,24 @@
       <Filter>原始程式檔</Filter>
     </ClCompile>
     <ClCompile Include="Administration.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="Parameter.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveButton.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="IOState.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinFrameWnd.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="SkinManager.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="BtnST.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
   </ItemGroup>
@@ -163,6 +196,30 @@
       <Filter>資源檔</Filter>
     </Image>
     <Image Include="res\Win.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="D:\Desktop\1453450518_free-05.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="D:\Desktop\1453450523_free-09.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\icon3.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\icon4.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\icon5.ico">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\bitmap1.bmp">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\bmp00001.bmp">
+      <Filter>資源檔</Filter>
+    </Image>
+    <Image Include="res\bmp00002.bmp">
       <Filter>資源檔</Filter>
     </Image>
   </ItemGroup>

@@ -30,7 +30,6 @@ public:
 //¤èªk
 public:
 	virtual BOOL OnInitDialog();
-	afx_msg void OnPaint();
 	afx_msg void OnBnClickedBtnadminnew();
 	afx_msg void OnBnClickedBtnadminmodify();
 	afx_msg void OnBnClickedBtnadmindelete();

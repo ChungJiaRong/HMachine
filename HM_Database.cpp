@@ -17,6 +17,7 @@ CHM_Database::CHM_Database(CString m_Stand) {
     this->m_Stand = m_Stand;
 }
 
+
 CHM_Database::~CHM_Database()
 {
 }
@@ -33,16 +34,20 @@ void CHM_Database::Serialize(CArchive& ar) {
 void CHM_Database::WKArrayCopy(CStringArray* pCStrA, UINT Count)
 {
     if (Count == 0) {
-        pCStrA->SetAt(Count, m_ptOrigin);
-        pCStrA->SetAt(Count+1, m_ptEnd);
-        pCStrA->SetAt(Count+2, m_Action);
+        pCStrA->InsertAt(Count, m_ptOrigin);
+        pCStrA->InsertAt(Count + 1, m_ptEnd);
+        pCStrA->InsertAt(Count + 2, m_Action);
     }
     else {
-        pCStrA->SetAt(Count * 2 + 1, m_ptEnd);
-        pCStrA->SetAt(Count * 2 + 2, m_Action);
+        pCStrA->InsertAt(Count * 2 + 1, m_ptEnd);
+        pCStrA->InsertAt(Count * 2 + 2, m_Action);
     }
 }
+
 void CHM_Database::PSArrayCopy(CStringArray* pCStrA, UINT Count)
 {
     pCStrA->SetAt(Count, m_Stand);
 }
+
+
+

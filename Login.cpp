@@ -20,8 +20,8 @@ CLogin::CLogin(CWnd* pParent /*=NULL*/)
 
 CLogin::~CLogin()
 {
-    m_UserData.FreeExtra();
-    m_UserData.RemoveAll();
+   /* m_UserData.FreeExtra();
+    m_UserData.RemoveAll();*/
 }
 
 void CLogin::DoDataExchange(CDataExchange* pDX)
@@ -34,7 +34,6 @@ BEGIN_MESSAGE_MAP(CLogin, CDialogEx)
 	ON_WM_SHOWWINDOW()
 END_MESSAGE_MAP()
 
-
 // CAccount 訊息處理常式
 void CLogin::OnShowWindow(BOOL bShow, UINT nStatus)
 {
@@ -43,7 +42,6 @@ void CLogin::OnShowWindow(BOOL bShow, UINT nStatus)
     ::SetWindowPos(m_hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);//設置視窗永遠在最上層
 	AfxGetMainWnd()->ShowWindow(SW_HIDE);//不能寫在Create，因為程式未創建完成就被隱藏會出錯
 	CenterWindow();//顯示在螢幕中間                                                                    
-										 // TODO: 在此加入您的訊息處理常式程式碼
 }
 /*登入*/
 void CLogin::OnOK()
@@ -54,7 +52,7 @@ void CLogin::OnOK()
 	GetDlgItemText(IDC_EDITPASSWORD, UserPwd);
 	CFile File;
 	int UserCount = 0;
-	if (File.Open(_T("Account.txt"), CFile::modeRead)) {//打開檔案
+	if (File.Open(_T("Account.dat"), CFile::modeRead)) {//打開檔案
 		CArchive ar(&File, CArchive::load);//讀取入檔案
 		ar >> UserCount;
 		m_UserData.SetSize(UserCount * 3);

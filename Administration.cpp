@@ -33,7 +33,6 @@ BEGIN_MESSAGE_MAP(CAdministration, CDialogEx)
 	ON_BN_CLICKED(IDC_BTNADMINMODIFY, &CAdministration::OnBnClickedBtnadminmodify)
 	ON_BN_CLICKED(IDC_BTNADMINDELETE, &CAdministration::OnBnClickedBtnadmindelete)
 	ON_BN_CLICKED(IDC_BTNADMINCHECK, &CAdministration::OnBnClickedBtnadmincheck)
-	ON_WM_PAINT()
 	ON_NOTIFY(NM_CLICK, IDC_LISTADMINUSER, &CAdministration::OnClickListadminuser)
 END_MESSAGE_MAP()
 
@@ -59,33 +58,27 @@ BOOL CAdministration::OnInitDialog()
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX 屬性頁應傳回 FALSE
 }
-void CAdministration::OnPaint()
-{
-	CPaintDC dc(this); // device context for painting
-					   // TODO: 在此加入您的訊息處理常式程式碼
-					   // 不要呼叫圖片訊息的 CDialogEx::OnPaint()
-}
 /*新增*/
 void CAdministration::OnBnClickedBtnadminnew()
 {
 	// TODO: 在此加入控制項告知處理常式程式碼
 	CString StrBuff;
 	GetDlgItem(IDC_BTNADMINNEW)->GetWindowText(StrBuff);
-	((CButton*)GetDlgItem(IDC_RAINEWENGINEER))->SetCheck(FALSE);
-	((CButton*)GetDlgItem(IDC_RAINEWOPERATOR))->SetCheck(FALSE);
+	((CButton*)GetDlgItem(IDC_RADNEWENGINEER))->SetCheck(FALSE);
+	((CButton*)GetDlgItem(IDC_RADNEWOPERATOR))->SetCheck(FALSE);
 	if (StrBuff == _T("新增"))
 	{
 		GetDlgItem(IDC_BTNADMINNEW)->SetWindowText(_T("取消新增"));//設置按紐文字
 		GetDlgItem(IDC_BTNADMINDELETE)->EnableWindow(FALSE);//關閉刪除
 		GetDlgItem(IDC_BTNADMINMODIFY)->EnableWindow(FALSE);//關閉修改
 		GetDlgItem(IDC_LISTADMINUSER)->EnableWindow(FALSE);//關閉使用者列表
-		for (int i = 911; i <= IDC_BTNADMINCHECK; i++)//開啟編輯
+		for (int i = 511; i <= IDC_BTNADMINCHECK; i++)//開啟編輯
 		{
 			GetDlgItem(i)->EnableWindow(TRUE);
 		}
 		GetDlgItem(IDC_EDITNEWUSERID)->SetWindowText(_T(""));
 		GetDlgItem(IDC_EDITNEWPASSWORD)->SetWindowText(_T(""));
-		((CButton*)GetDlgItem(IDC_RAINEWOPERATOR))->SetCheck(TRUE);
+		((CButton*)GetDlgItem(IDC_RADNEWOPERATOR))->SetCheck(TRUE);
 		m_ActionChoose = 1;
 	}
 	else 
@@ -94,7 +87,7 @@ void CAdministration::OnBnClickedBtnadminnew()
 		GetDlgItem(IDC_BTNADMINDELETE)->EnableWindow(TRUE);//開啟刪除
 		GetDlgItem(IDC_BTNADMINMODIFY)->EnableWindow(TRUE);//開啟修改
 		GetDlgItem(IDC_LISTADMINUSER)->EnableWindow(TRUE);//開啟使用者列表
-		for (int i = 911; i <= IDC_BTNADMINCHECK; i++)//關閉編輯控件
+		for (int i = 511; i <= IDC_BTNADMINCHECK; i++)//關閉編輯控件
 		{
 			GetDlgItem(i)->EnableWindow(FALSE);
 		}
@@ -110,11 +103,11 @@ void CAdministration::OnBnClickedBtnadminnew()
 			GetDlgItem(IDC_EDITNEWPASSWORD)->SetWindowText(m_UserData[(m_ActionChoose ? istat : m_ListCount) * 3 + 1]);
 			if (m_UserData[(m_ActionChoose ? istat : m_ListCount) * 3 + 2] == _T("工程師"))
 			{
-				((CButton*)GetDlgItem(IDC_RAINEWENGINEER))->SetCheck(TRUE);
+				((CButton*)GetDlgItem(IDC_RADNEWENGINEER))->SetCheck(TRUE);
 			}
 			else
 			{
-				((CButton*)GetDlgItem(IDC_RAINEWOPERATOR))->SetCheck(TRUE);
+				((CButton*)GetDlgItem(IDC_RADNEWOPERATOR))->SetCheck(TRUE);
 			}
 		}
 	} 
@@ -129,7 +122,7 @@ void CAdministration::OnBnClickedBtnadminmodify()
 	if (StrBuff == _T("修改"))
 	{
 		GetDlgItem(IDC_BTNADMINMODIFY)->SetWindowText(_T("取消修改"));
-		for (int i = 912; i <= IDC_BTNADMINCHECK; i++)//開啟編輯
+		for (int i = 512; i <= IDC_BTNADMINCHECK; i++)//開啟編輯
 		{
 			GetDlgItem(i)->EnableWindow(TRUE);
 		}
@@ -141,7 +134,7 @@ void CAdministration::OnBnClickedBtnadminmodify()
 	else
 	{
 		GetDlgItem(IDC_BTNADMINMODIFY)->SetWindowText(_T("修改"));
-		for (int i = 912; i <= IDC_BTNADMINCHECK; i++)//關閉編輯
+		for (int i = 512; i <= IDC_BTNADMINCHECK; i++)//關閉編輯
 		{
 			GetDlgItem(i)->EnableWindow(FALSE);
 		}
@@ -150,16 +143,16 @@ void CAdministration::OnBnClickedBtnadminmodify()
 		GetDlgItem(IDC_LISTADMINUSER)->EnableWindow(TRUE);//關閉使用者列表
 		if (m_ActionChoose)//未修改成功
 		{
-			((CButton*)GetDlgItem(IDC_RAINEWENGINEER))->SetCheck(FALSE);
-			((CButton*)GetDlgItem(IDC_RAINEWOPERATOR))->SetCheck(FALSE);
+			((CButton*)GetDlgItem(IDC_RADNEWENGINEER))->SetCheck(FALSE);
+			((CButton*)GetDlgItem(IDC_RADNEWOPERATOR))->SetCheck(FALSE);
 			GetDlgItem(IDC_EDITNEWPASSWORD)->SetWindowText(m_UserData[istat * 3 + 1]);
 			if (m_UserData[istat * 3 + 2] == _T("工程師"))
 			{
-				((CButton*)GetDlgItem(IDC_RAINEWENGINEER))->SetCheck(TRUE);
+				((CButton*)GetDlgItem(IDC_RADNEWENGINEER))->SetCheck(TRUE);
 			}
 			else
 			{
-				((CButton*)GetDlgItem(IDC_RAINEWOPERATOR))->SetCheck(TRUE);
+				((CButton*)GetDlgItem(IDC_RADNEWOPERATOR))->SetCheck(TRUE);
 			}
 		}
 	}
@@ -203,17 +196,17 @@ void CAdministration::OnBnClickedBtnadmincheck()
         m_ListCtrlUser.InsertItem(m_ListCount, _T(""));
 		m_UserData.Add(UserID);
 		m_UserData.Add(UserPwd);
-		switch (GetCheckedRadioButton(IDC_RAINEWENGINEER, IDC_RAINEWOPERATOR))
+		switch (GetCheckedRadioButton(IDC_RADNEWENGINEER, IDC_RADNEWOPERATOR))
 		{
-		case IDC_RAINEWENGINEER:
+		case IDC_RADNEWENGINEER:
 			m_UserData.Add(_T("工程師"));
 			break;
-		case IDC_RAINEWOPERATOR:
+		case IDC_RADNEWOPERATOR:
 			m_UserData.Add(_T("操作員"));
 			break;
 		default:
 			MessageBox(_T("程式出現錯誤!"));
-			break;
+            return;
 		}
 		m_ActionChoose = 0;
 		OnBnClickedBtnadminnew();
@@ -230,17 +223,17 @@ void CAdministration::OnBnClickedBtnadmincheck()
             break;
         }
 		m_UserData.SetAt(istat * 3 + 1, UserPwd);
-		switch (GetCheckedRadioButton(IDC_RAINEWENGINEER, IDC_RAINEWOPERATOR))
+		switch (GetCheckedRadioButton(IDC_RADNEWENGINEER, IDC_RADNEWOPERATOR))
 		{
-		case IDC_RAINEWENGINEER:
+		case IDC_RADNEWENGINEER:
 			m_UserData.SetAt(istat * 3 + 2, _T("工程師"));
 			break;
-		case IDC_RAINEWOPERATOR:
+		case IDC_RADNEWOPERATOR:
 			m_UserData.SetAt(istat * 3 + 2, _T("操作員"));
 			break;
 		default:
 			MessageBox(_T("程式出現錯誤!"));
-			break;
+            return;
 		} 
 		m_ActionChoose = 0;
 		OnBnClickedBtnadminmodify();
@@ -260,17 +253,17 @@ void CAdministration::OnClickListadminuser(NMHDR *pNMHDR, LRESULT *pResult)
 	{
 		GetDlgItem(IDC_BTNADMINMODIFY)->EnableWindow(TRUE);//開啟修改
 		GetDlgItem(IDC_BTNADMINDELETE)->EnableWindow(TRUE);//開啟刪除
-		((CButton*)GetDlgItem(IDC_RAINEWENGINEER))->SetCheck(FALSE);//清除選取
-		((CButton*)GetDlgItem(IDC_RAINEWOPERATOR))->SetCheck(FALSE);
+		((CButton*)GetDlgItem(IDC_RADNEWENGINEER))->SetCheck(FALSE);//清除選取
+		((CButton*)GetDlgItem(IDC_RADNEWOPERATOR))->SetCheck(FALSE);
 		GetDlgItem(IDC_EDITNEWUSERID)->SetWindowText(m_ListCtrlUser.GetItemText(istat, 1));
 		GetDlgItem(IDC_EDITNEWPASSWORD)->SetWindowText(m_ListCtrlUser.GetItemText(istat, 2));
 		if (m_ListCtrlUser.GetItemText(istat, 3) == _T("工程師"))
 		{
-			((CButton*)GetDlgItem(IDC_RAINEWENGINEER))->SetCheck(TRUE);
+			((CButton*)GetDlgItem(IDC_RADNEWENGINEER))->SetCheck(TRUE);
 		}
 		else
 		{
-			((CButton*)GetDlgItem(IDC_RAINEWOPERATOR))->SetCheck(TRUE);
+			((CButton*)GetDlgItem(IDC_RADNEWOPERATOR))->SetCheck(TRUE);
 		}
 	}
 	*pResult = 0;
@@ -295,7 +288,7 @@ void CAdministration::ReadAccountData() {
 	m_ListCtrlUser.DeleteAllItems();//清空列表
 	CFile File;
 	CString StrBuff;
-	if (File.Open(_T("Account.txt"), CFile::modeRead)) {//打開檔案
+	if (File.Open(_T("Account.dat"), CFile::modeRead)) {//打開檔案
 		CArchive ar(&File, CArchive::load);//讀取入檔案
 		ar >> m_ListCount;//讀出使用者總數
 		m_UserData.SetSize(m_ListCount*3);
@@ -312,7 +305,7 @@ void CAdministration::ReadAccountData() {
 /*寫入使用者資料*/
 void CAdministration::WriteAccountData() {
 	CFile File;
-	if (File.Open(_T("Account.txt"), CFile::modeCreate | CFile::modeWrite)) {
+	if (File.Open(_T("Account.dat"), CFile::modeCreate | CFile::modeWrite)) {
 		CArchive ar(&File, CArchive::store);
 		ar << m_ListCount;//寫入使用者總數
 		for (int i = 0; i < m_ListCount * 3; i++) {
@@ -353,6 +346,7 @@ BOOL CAdministration::CheckUserPassWord(CString UserPwd){
     }
     return TRUE;
 }
+/*屏蔽Enter鍵*/
 void CAdministration::OnOK()
 {
     // TODO: 在此加入特定的程式碼和 (或) 呼叫基底類別

@@ -1,0 +1,87 @@
+// MoveButton.cpp : 實作檔
+//
+
+#include "stdafx.h"
+#include "HM_Machine.h"
+#include "MoveButton.h"
+
+#include "MainFrm.h"
+#include "HM_MachineDoc.h"
+#include "HM_MachineView.h"
+
+// CMoveButton
+
+IMPLEMENT_DYNAMIC(CMoveButton, CButton)
+
+CMoveButton::CMoveButton()
+{
+    MoveX = 0;
+    MoveY = 0;
+    MoveZ = 0;
+}
+CMoveButton::~CMoveButton()
+{
+}
+
+BEGIN_MESSAGE_MAP(CMoveButton, CButton)
+    ON_WM_LBUTTONDOWN()
+    ON_WM_LBUTTONUP()
+END_MESSAGE_MAP()
+
+// CMoveButton 訊息處理常式
+/*按鈕按下*/
+void CMoveButton::OnLButtonDown(UINT nFlags, CPoint point)
+{
+    // TODO: 在此加入您的訊息處理常式程式碼和 (或) 呼叫預設值
+    CMainFrame *pMain = (CMainFrame*)AfxGetApp()->m_pMainWnd;//獲取已建立的View指針
+    CHM_MachineView *pView = (CHM_MachineView *)pMain->GetActiveView();
+    CParameter* pParameter = (CParameter*)pView->m_DlgArray.GetAt(2);
+    CCompiler* pCompiler = (CCompiler*)pView->m_DlgArray.GetAt(1);
+#ifdef MOVE
+    if (MoveX || MoveY)
+    {
+        switch (pCompiler->GetCheckedRadioButton(IDC_RADCOMHS, IDC_RADCOMLS))
+        {
+        case IDC_RADCOMHS:
+            MO_Do2DLineMove(MoveX, MoveY, pParameter->HSpeed.End, pParameter->HSpeed.Add, pParameter->HSpeed.Init);
+            break;
+        case IDC_RADCOMMS:
+            MO_Do2DLineMove(MoveX, MoveY, pParameter->MSpeed.End, pParameter->MSpeed.Add, pParameter->MSpeed.Init);
+            break;
+        case IDC_RADCOMLS:
+            MO_Do2DLineMove(MoveX, MoveY, pParameter->LSpeed.End, pParameter->LSpeed.Add, pParameter->LSpeed.Init);
+            break;
+        default:
+            break;
+        }
+    }
+    if (MoveZ)
+    {
+        switch (pCompiler->GetCheckedRadioButton(IDC_RADCOMHS, IDC_RADCOMLS))
+        {
+        case IDC_RADCOMHS:
+            MO_DoZLineMove(MoveZ, pParameter->HSpeed.End, pParameter->HSpeed.Add, pParameter->HSpeed.Init);
+            break;
+        case IDC_RADCOMMS:
+            MO_DoZLineMove(MoveZ, pParameter->MSpeed.End, pParameter->MSpeed.Add, pParameter->MSpeed.Init);
+            break;
+        case IDC_RADCOMLS:
+            MO_DoZLineMove(MoveZ, pParameter->LSpeed.End, pParameter->LSpeed.Add, pParameter->LSpeed.Init);
+            break;
+        default:
+            break;
+        }
+    }
+#endif // MOVE
+    CButton::OnLButtonDown(nFlags, point);
+}
+/*按鈕放開*/
+void CMoveButton::OnLButtonUp(UINT nFlags, CPoint point)
+{
+    // TODO: 在此加入您的訊息處理常式程式碼和 (或) 呼叫預設值
+#ifdef MOVE
+    MO_DecSTOP();
+#endif // MOVE
+    CButton::OnLButtonUp(nFlags, point);
+}
+

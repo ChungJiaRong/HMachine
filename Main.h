@@ -1,22 +1,16 @@
 #pragma once
 #include "afxcmn.h"
 #include "afxwin.h"
-//#define ALL_STAR
-#ifdef ALL_STAR 
-    #include "MFCDLLtest.h"
-#endif
-#ifdef ALL_STAR1 
-#include<mil.h>
-#endif
-
-
 #define WM_WORKLIST WM_USER + 1
 struct WorkPoint {
     HWND hwnd;
     int WorkCount;
     CStringArray* Work;
+    CString StandPos1, StandPos2;
+    CString m_ZDataDown, m_ZDataUp;
 };
-static CWinThread* g_pThreadRun; 
+static CWinThread* g_pThreadRun;
+static BOOL g_ThreadClose = FALSE;
 //CMain對話方塊
 class CMain : public CPropertyPage
 {
@@ -33,35 +27,26 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV
-
+    virtual BOOL OnInitDialog();
 	DECLARE_MESSAGE_MAP()
 //屬性
 public:
 	CRect  m_InitRect;
     CStringArray m_MainWorkData;
     int m_MainListWKCount;
-	CString m_MainPosData1,m_MainPosData2;
+	CString m_MainPosData1,m_MainPosData2,m_MainZDataDown,m_MainZDataUp;
 	CListCtrl m_ListCtrlWork;
-#ifdef ALL_STAR1
-    MIL_ID	MilApplication,
-        MilSystem,
-        MilDisplay,
-        MilDigitizer,
-        MilImage,
-        MilOverlayImage;  
-#endif
 //方法
 public:
-    
 	void ChangeSize(CWnd* pWnd, int cx, int cy);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 	afx_msg void OnBnClickedBtnmaingoorigin();
 	afx_msg void OnBnClickedBtnmaintimeout();
 	afx_msg void OnBnClickedBtnmainstop();
 	afx_msg void OnBnClickedBtnmainstart();
-	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
+    afx_msg void OnTimer(UINT_PTR nIDEvent);
+    afx_msg LRESULT OnListRefresh(WPARAM wParam, LPARAM lParam);   
     static CString CStringToXY(CString Data, int Choose);
     static UINT Run(LPVOID pParam);
-    afx_msg LRESULT OnListRefresh(WPARAM wParam, LPARAM lParam);   
 };
