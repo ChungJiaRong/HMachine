@@ -196,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BtnST.h" />
+    <ClInclude Include="History.h" />
     <ClInclude Include="IOState.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="Compiler.h" />
@@ -216,6 +217,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BtnST.cpp" />
+    <ClCompile Include="History.cpp" />
     <ClCompile Include="IOState.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="Compiler.cpp" />
