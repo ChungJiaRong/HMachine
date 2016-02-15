@@ -1,4 +1,111 @@
-﻿  HM_MachineView.cpp
+﻿  stdafx.cpp
+  BtnST.cpp
+BtnST.cpp(19): warning C4005: 'BS_TYPEMASK': 巨集重複定義
+  C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\include\winuser.h(9459): note: 請參閱 'BS_TYPEMASK' 之前的定義
+BtnST.cpp(1248): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+BtnST.cpp(1248): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+BtnST.cpp(1248): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+BtnST.cpp(1249): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+BtnST.cpp(1251): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+BtnST.cpp(1251): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+BtnST.cpp(1251): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+BtnST.cpp(1252): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+BtnST.cpp(1338): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+BtnST.cpp(1338): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+BtnST.cpp(1340): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+BtnST.cpp(1340): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+BtnST.cpp(1340): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+BtnST.cpp(1343): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+BtnST.cpp(1343): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+BtnST.cpp(1343): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+BtnST.cpp(1410): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+BtnST.cpp(1410): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+BtnST.cpp(1410): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+BtnST.cpp(1411): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+BtnST.cpp(1413): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+BtnST.cpp(1413): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+BtnST.cpp(1413): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+BtnST.cpp(1414): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+BtnST.cpp(1470): warning C4311: '類型轉換': 指標值由 'HBITMAP' 指派至 'int' 時會遭截斷
+BtnST.cpp(1470): warning C4302: '類型轉換': 從 'HBITMAP' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+BtnST.cpp(1472): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+BtnST.cpp(1472): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+BtnST.cpp(1472): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+BtnST.cpp(1477): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+BtnST.cpp(1477): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+BtnST.cpp(1477): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+  IOState.cpp
+IOState.cpp(124): warning C4018: '<': signed/unsigned 不相符
+IOState.cpp(142): warning C4018: '<': signed/unsigned 不相符
+IOState.cpp(148): warning C4018: '<': signed/unsigned 不相符
+IOState.cpp(157): warning C4018: '<': signed/unsigned 不相符
+IOState.cpp(244): warning C4800: 'int': 強制將 bool 的值定為 'true' 或 'false' (效能警告)
+IOState.cpp(276): warning C4018: '<=': signed/unsigned 不相符
+IOState.cpp(278): warning C4018: '<=': signed/unsigned 不相符
+IOState.cpp(293): warning C4018: '<=': signed/unsigned 不相符
+IOState.cpp(295): warning C4018: '<=': signed/unsigned 不相符
+IOState.cpp(318): warning C4018: '<=': signed/unsigned 不相符
+IOState.cpp(320): warning C4018: '<=': signed/unsigned 不相符
+  Login.cpp
+  Compiler.cpp
+Compiler.cpp(273): warning C4244: '=': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+Compiler.cpp(274): warning C4244: '=': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+Compiler.cpp(523): warning C4244: '正在初始化': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+  HM_Database.cpp
+  HM_Machine.cpp
+  HM_MachineDoc.cpp
+HM_MachineDoc.cpp(151): warning C4244: '=': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+HM_MachineDoc.cpp(156): warning C4244: '=': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+HM_MachineDoc.cpp(161): warning C4244: '=': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+  HM_MachineView.cpp
 HM_MachineView.cpp(53): warning C4244: '正在初始化': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
 HM_MachineView.cpp(171): warning C4244: '正在初始化': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+  Main.cpp
+Main.cpp(388): warning C4244: '引數': 將 'LPARAM' 轉換為 'int'，由於類型不同，可能導致資料遺失
+Main.cpp(389): warning C4244: '引數': 將 'LPARAM' 轉換為 'int'，由於類型不同，可能導致資料遺失
+Main.cpp(390): warning C4244: '引數': 將 'LPARAM' 轉換為 'int'，由於類型不同，可能導致資料遺失
+Main.cpp(391): warning C4244: '引數': 將 'LPARAM' 轉換為 'int'，由於類型不同，可能導致資料遺失
+  MainFrm.cpp
+  Administration.cpp
+  MoveButton.cpp
+  Parameter.cpp
+Parameter.cpp(359): warning C4800: 'BOOL': 強制將 bool 的值定為 'true' 或 'false' (效能警告)
+Parameter.cpp(360): warning C4800: 'BOOL': 強制將 bool 的值定為 'true' 或 'false' (效能警告)
+Parameter.cpp(378): warning C4018: '<=': signed/unsigned 不相符
+  SkinFrameWnd.cpp
+SkinFrameWnd.cpp(65): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(66): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(67): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(68): warning C4244: '引數': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(68): warning C4244: '引數': 將 'UINT' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(70): warning C4244: '=': 將 'LONG' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(71): warning C4244: '=': 將 'LONG' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(72): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(73): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(74): warning C4244: '引數': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(74): warning C4244: '引數': 將 'UINT' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(77): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(78): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(79): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(80): warning C4244: '引數': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(80): warning C4244: '引數': 將 'UINT' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(84): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(85): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(86): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(87): warning C4244: '引數': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(91): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(92): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(93): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(94): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(95): warning C4244: '引數': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(95): warning C4244: '引數': 將 'UINT' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(100): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(101): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(102): warning C4244: '引數': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(217): warning C4244: '=': 將 'double' 轉換為 'LONG'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(218): warning C4244: '=': 將 'double' 轉換為 'LONG'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(221): warning C4244: '=': 將 'double' 轉換為 'LONG'，由於類型不同，可能導致資料遺失
+SkinFrameWnd.cpp(222): warning C4244: '=': 將 'double' 轉換為 'LONG'，由於類型不同，可能導致資料遺失
+  SkinManager.cpp
+  正在產生程式碼...
   HM_Machine.vcxproj -> C:\Users\eeltb01\Documents\Visual Studio 2015\Projects\HM_Machine\x64\Release\HM_Machine.exe
