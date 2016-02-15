@@ -1,1 +1,109 @@
-﻿  HM_Machine.vcxproj -> C:\Users\eeltb01\Documents\Visual Studio 2015\Projects\HM_Machine\x64\Debug\HM_Machine.exe
+﻿  stdafx.cpp
+  SkinManager.cpp
+  SkinFrameWnd.cpp
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(65): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(66): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(67): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(68): warning C4244: '引數': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(68): warning C4244: '引數': 將 'UINT' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(70): warning C4244: '=': 將 'LONG' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(71): warning C4244: '=': 將 'LONG' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(72): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(73): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(74): warning C4244: '引數': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(74): warning C4244: '引數': 將 'UINT' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(77): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(78): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(79): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(80): warning C4244: '引數': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(80): warning C4244: '引數': 將 'UINT' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(84): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(85): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(86): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(87): warning C4244: '引數': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(91): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(92): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(93): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(94): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(95): warning C4244: '引數': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(95): warning C4244: '引數': 將 'UINT' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(100): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(101): warning C4244: '=': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(102): warning C4244: '引數': 將 'int' 轉換為 'Gdiplus::REAL'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(217): warning C4244: '=': 將 'double' 轉換為 'LONG'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(218): warning C4244: '=': 將 'double' 轉換為 'LONG'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(221): warning C4244: '=': 將 'double' 轉換為 'LONG'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\skinframewnd.cpp(222): warning C4244: '=': 將 'double' 轉換為 'LONG'，由於類型不同，可能導致資料遺失
+  Parameter.cpp
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\parameter.cpp(378): warning C4018: '<=': signed/unsigned 不相符
+  MoveButton.cpp
+  Administration.cpp
+  MainFrm.cpp
+  Main.cpp
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\main.cpp(388): warning C4244: '引數': 將 'LPARAM' 轉換為 'int'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\main.cpp(389): warning C4244: '引數': 將 'LPARAM' 轉換為 'int'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\main.cpp(390): warning C4244: '引數': 將 'LPARAM' 轉換為 'int'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\main.cpp(391): warning C4244: '引數': 將 'LPARAM' 轉換為 'int'，由於類型不同，可能導致資料遺失
+  HM_MachineView.cpp
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\hm_machineview.cpp(53): warning C4244: '正在初始化': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\hm_machineview.cpp(171): warning C4244: '正在初始化': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+  HM_MachineDoc.cpp
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\hm_machinedoc.cpp(151): warning C4244: '=': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\hm_machinedoc.cpp(156): warning C4244: '=': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\hm_machinedoc.cpp(161): warning C4244: '=': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+  HM_Machine.cpp
+  HM_Database.cpp
+  Compiler.cpp
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\compiler.cpp(273): warning C4244: '=': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\compiler.cpp(274): warning C4244: '=': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\compiler.cpp(523): warning C4244: '正在初始化': 將 'INT_PTR' 轉換為 'int'，由於類型不同，可能導致資料遺失
+  Login.cpp
+  IOState.cpp
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\iostate.cpp(124): warning C4018: '<': signed/unsigned 不相符
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\iostate.cpp(142): warning C4018: '<': signed/unsigned 不相符
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\iostate.cpp(148): warning C4018: '<': signed/unsigned 不相符
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\iostate.cpp(157): warning C4018: '<': signed/unsigned 不相符
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\iostate.cpp(276): warning C4018: '<=': signed/unsigned 不相符
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\iostate.cpp(278): warning C4018: '<=': signed/unsigned 不相符
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\iostate.cpp(293): warning C4018: '<=': signed/unsigned 不相符
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\iostate.cpp(295): warning C4018: '<=': signed/unsigned 不相符
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\iostate.cpp(318): warning C4018: '<=': signed/unsigned 不相符
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\iostate.cpp(320): warning C4018: '<=': signed/unsigned 不相符
+  History.cpp
+  BtnST.cpp
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(19): warning C4005: 'BS_TYPEMASK': 巨集重複定義
+  c:\program files (x86)\microsoft sdks\windows\v7.1a\include\winuser.h(9459): note: 請參閱 'BS_TYPEMASK' 之前的定義
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1248): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1248): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1248): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1249): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1251): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1251): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1251): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1252): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1338): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1338): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1340): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1340): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1340): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1343): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1343): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1343): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1410): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1410): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1410): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1411): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1413): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1413): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1413): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1414): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1470): warning C4311: '類型轉換': 指標值由 'HBITMAP' 指派至 'int' 時會遭截斷
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1470): warning C4302: '類型轉換': 從 'HBITMAP' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1472): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1472): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1472): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1477): warning C4312: '類型轉換': 將 'unsigned long' 轉換為較大的 'HICON'
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1477): warning C4311: '類型轉換': 指標值由 'HICON' 指派至 'int' 時會遭截斷
+c:\users\eeltb01\documents\visual studio 2015\projects\hm_machine\hm_machine\btnst.cpp(1477): warning C4302: '類型轉換': 從 'HICON' 轉換為 'int'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+  正在產生程式碼...
+  HM_Machine.vcxproj -> C:\Users\eeltb01\Documents\Visual Studio 2015\Projects\HM_Machine\x64\Debug\HM_Machine.exe
