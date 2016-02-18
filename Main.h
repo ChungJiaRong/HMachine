@@ -46,7 +46,8 @@ public:
 	afx_msg void OnBnClickedBtnmainstart();
 	afx_msg void OnPaint();
     afx_msg void OnTimer(UINT_PTR nIDEvent);
-    afx_msg LRESULT OnListRefresh(WPARAM wParam, LPARAM lParam);   
+    afx_msg LRESULT OnListRefresh(WPARAM wParam, LPARAM lParam);
+    static void StandRun(double * OffSetX, double * OffSetY, double * Angle);
     static CString CStringToXY(CString Data, int Choose);
     static UINT Run(LPVOID pParam);
 };

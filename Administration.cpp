@@ -91,12 +91,14 @@ void CAdministration::OnBnClickedBtnadminnew()
 		{
 			GetDlgItem(i)->EnableWindow(FALSE);
 		}
-		int istat = m_ListCtrlUser.GetSelectionMark();
+        SetDlgItemText(IDC_EDITNEWUSERID, _T(""));
+        SetDlgItemText(IDC_EDITNEWPASSWORD, _T(""));	
 		if (!m_ActionChoose)//新增成功
 		{
 			m_ListCtrlUser.SetItemState(m_ListCount, LVIS_SELECTED, LVIS_SELECTED);
 			m_ListCtrlUser.SetSelectionMark(m_ListCount);
 		}
+        int istat = m_ListCtrlUser.GetSelectionMark();
 		if (istat != -1)
 		{
 			GetDlgItem(IDC_EDITNEWUSERID)->SetWindowText(m_UserData[(m_ActionChoose ? istat : m_ListCount) * 3]);

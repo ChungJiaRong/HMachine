@@ -18,19 +18,18 @@
 extern "C" _declspec(dllexport) void VI_ModelDefine(CWnd* IDC_ModelOneWindow);
 //更改框框
 extern "C" _declspec(dllexport) void VI_ChangeRec(CWnd* IDC_ModelOneWindow,int x,int y);
-//獲取model1並儲存，傳入放置model2視窗
-extern "C" _declspec(dllexport) void VI_GetModel1(CWnd* IDC_ModelOneWindow);
+//獲取model1並儲存，傳入放置model2視窗，Path放路徑(需用\\)，Name放名稱
+extern "C" _declspec(dllexport) void VI_GetModel1(CWnd* IDC_ModelOneWindow,CString Path,CString Name);
 //獲取model2並儲存
-extern "C" _declspec(dllexport) void VI_GetModel2(CWnd* IDC_ModelTwoWindow);
-//model1比對
-extern "C" _declspec(dllexport) void VI_FindModel1(double &OffSetX,double &OffSetY,double &Angle,CWnd* IDC_ShowWindow);
+extern "C" _declspec(dllexport) void VI_GetModel2(CWnd* IDC_ModelTwoWindow,CString Path,CString Name);
+//model1比對(Offset皆回傳整數，Angle回傳浮點數)
+extern "C" _declspec(dllexport) void VI_FindModel1(double &OffSetX,double &OffSetY,double &Angle,CWnd* IDC_ShowWindow,CString Path,CString Name);
 //model2比對
-extern "C" _declspec(dllexport) void VI_FindModel2(double &OffSetX2,double &OffSetY2,double &Angle2,CWnd* IDC_ShowWindow);
+extern "C" _declspec(dllexport) void VI_FindModel2(double &OffSetX2,double &OffSetY2,double &Angle2,CWnd* IDC_ShowWindow,CString Path,CString Name);
 //停止
 extern "C" _declspec(dllexport) void VI_Free();
 //切換視窗
 extern "C" _declspec(dllexport) void VI_ChangeWindow(CWnd* IDC_ShowWindow);
-
 class CVI_DllApp : public CWinApp
 {
 public:
