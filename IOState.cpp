@@ -159,6 +159,8 @@ void CIOState::AddControl()
 	/*修改初始編輯框風格*/
 	((CEdit*)GetDlgItem(IDC_EDITIOINAME))->ModifyStyle(0, WS_BORDER );
 	((CEdit*)GetDlgItem(IDC_EDITIOONAME))->ModifyStyle(0, WS_BORDER );
+    /*刷新IO*/
+    OnBnClickedBtniorefresh();
 }
 /*改變控件大小*/
 void CIOState::ChangeSize(CWnd* pWnd, int cx, int cy)
@@ -235,13 +237,19 @@ void CIOState::OnBnClickedBtniorefresh()
 	// TODO: 在此加入控制項告知處理常式程式碼
     if (m_bBtnEnable == FALSE){
 #ifdef MOVE
+        for (int i = 0; i < 12; i++)
+        {
+            
+        }
 	    for (int i = 0; i < 12; i++)
 	    {
-		    m_InputState[i] = MO_ReadPIOInput(i);
+            if (m_InputState[i] != -1)
+                m_InputState[i] = MO_ReadPIOInput(i);
 	    }
 	    for (int i = 0; i < 12; i++)
 	    {
-		    MO_SetPIOOutput(i, m_OutputState[i]);
+            if (m_OutputState[i] != -1)
+		        MO_SetPIOOutput(i, m_OutputState[i]);
 	    }
 #endif //MOVE
         MyUpdateData(TRUE,m_InputState,FALSE,NULL);
@@ -322,6 +330,7 @@ void CIOState::OnBnClickedBtnsetfinish()
         m_bBtnEnable = FALSE;
         MyUpdateData(TRUE,m_InputState,TRUE,m_OutputState,TRUE,TRUE);
 		WriteIOData();
+        OnBnClickedBtniorefresh();
 	}
 }
 /*Input開關*/

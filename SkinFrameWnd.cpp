@@ -214,12 +214,12 @@ void CSkinFrameWnd::OnGetMinMaxInfo(MINMAXINFO* lpMMI)
     // TODO: 在此加入您的訊息處理常式程式碼和 (或) 呼叫預設值
     lpMMI->ptMinTrackSize.x = 550;
     lpMMI->ptMinTrackSize.y = 320;
-    lpMMI->ptMaxPosition.x = 0.5;
-    lpMMI->ptMaxPosition.y = 0.5;
+    lpMMI->ptMaxPosition.x = 1;
+    lpMMI->ptMaxPosition.y = 1;
     CRect rcWorkArea;
     ::SystemParametersInfo(SPI_GETWORKAREA, 0, &rcWorkArea, 0);
-    lpMMI->ptMaxSize.x = lpMMI->ptMaxTrackSize.x = rcWorkArea.Width() - 0.5;
-    lpMMI->ptMaxSize.y = lpMMI->ptMaxTrackSize.y = rcWorkArea.Height() - 0.5;
+    lpMMI->ptMaxSize.x = lpMMI->ptMaxTrackSize.x = rcWorkArea.Width() - 1;
+    lpMMI->ptMaxSize.y = lpMMI->ptMaxTrackSize.y = rcWorkArea.Height() - 1;
     CFrameWnd::OnGetMinMaxInfo(lpMMI);
 }
 LRESULT CSkinFrameWnd::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
