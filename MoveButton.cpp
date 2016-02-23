@@ -26,11 +26,30 @@ CMoveButton::~CMoveButton()
 BEGIN_MESSAGE_MAP(CMoveButton, CButton)
     ON_WM_LBUTTONDOWN()
     ON_WM_LBUTTONUP()
+    ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 // CMoveButton 訊息處理常式
 /*按鈕按下*/
 void CMoveButton::OnLButtonDown(UINT nFlags, CPoint point)
+{
+    // TODO: 在此加入您的訊息處理常式程式碼和 (或) 呼叫預設值
+    
+    SetTimer(1, 100, NULL);   
+    CButton::OnLButtonDown(nFlags, point);
+}
+/*按鈕放開*/
+void CMoveButton::OnLButtonUp(UINT nFlags, CPoint point)
+{
+    // TODO: 在此加入您的訊息處理常式程式碼和 (或) 呼叫預設值
+#ifdef MOVE
+    MO_DecSTOP();
+#endif // MOVE
+    KillTimer(1);
+    CButton::OnLButtonUp(nFlags, point);
+}
+/*計數執行次數*/
+void CMoveButton::OnTimer(UINT_PTR nIDEvent)
 {
     // TODO: 在此加入您的訊息處理常式程式碼和 (或) 呼叫預設值
     CMainFrame *pMain = (CMainFrame*)AfxGetApp()->m_pMainWnd;//獲取已建立的View指針
@@ -72,16 +91,7 @@ void CMoveButton::OnLButtonDown(UINT nFlags, CPoint point)
             break;
         }
     }
-#endif // MOVE
-    CButton::OnLButtonDown(nFlags, point);
+#endif // MOVE 
+    WriteHistory(((CHM_MachineApp*)AfxGetApp())->HistoryFile, ((CHM_MachineApp*)AfxGetApp())->UserID, _T("滑鼠"), _T("按下"));
+    CButton::OnTimer(nIDEvent);
 }
-/*按鈕放開*/
-void CMoveButton::OnLButtonUp(UINT nFlags, CPoint point)
-{
-    // TODO: 在此加入您的訊息處理常式程式碼和 (或) 呼叫預設值
-#ifdef MOVE
-    MO_DecSTOP();
-#endif // MOVE
-    CButton::OnLButtonUp(nFlags, point);
-}
-

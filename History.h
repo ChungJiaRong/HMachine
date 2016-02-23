@@ -1,4 +1,5 @@
 #pragma once
+#include "afxdtctl.h"
 
 
 // CHistory ¹ï¸Ü¤è¶ô
@@ -23,7 +24,12 @@ protected:
 public:
     virtual BOOL OnInitDialog();
     CListCtrl m_HistoryList;
-    CStringArray m_AccoutName;
+    CDateTimeCtrl m_DateTimeStart;
+    CDateTimeCtrl m_DateTimeEnd;
     void ReadAccountData();
-    void ReadHistory(CListCtrl &setlist, CFile &read_file, CString myfilepath);
+    void SearchReadHistoty(CFile *read_file, CString myfilepath, CListCtrl *setlist, CTime Begin, CTime End, CString read_account, CString read_action);
+    void ReadAllHistory(CListCtrl &setlist, CFile &read_file, CString myfilepath);
+    afx_msg void OnSelchangeComboBox();
+    afx_msg void OnDatetimechangeDate(NMHDR *pNMHDR, LRESULT *pResult);
+    afx_msg void OnBnClickedBtnhiscsearchall();
 };

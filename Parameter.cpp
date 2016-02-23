@@ -239,6 +239,7 @@ void CParameter::OnBnClickedBtnparsetfinish()
 		WriteParamData();
 		RefreshData();
         SetParameter();
+        WriteHistory(((CHM_MachineApp*)AfxGetApp())->HistoryFile, ((CHM_MachineApp*)AfxGetApp())->UserID, _T("參數設定"), _T("編輯完成"));
 	}
 }
 /*編輯參數*/
@@ -258,6 +259,7 @@ void CParameter::OnBnClickedBtnpareditpar()
         GetDlgItem(IDC_CHKPARHLIMIT)->EnableWindow(TRUE);
         GetDlgItem(IDC_CHKPARSLIMIT)->EnableWindow(TRUE);
         OnSelendokCmbpartype();
+        WriteHistory(((CHM_MachineApp*)AfxGetApp())->HistoryFile, ((CHM_MachineApp*)AfxGetApp())->UserID, _T("參數設定"), _T("編輯參數"));
 	}                                        
 	else
 	{
@@ -270,6 +272,7 @@ void CParameter::OnBnClickedBtnpareditpar()
         GetDlgItem(IDC_CHKPARHLIMIT)->EnableWindow(FALSE);
         GetDlgItem(IDC_CHKPARSLIMIT)->EnableWindow(FALSE);
 		RefreshData();
+        WriteHistory(((CHM_MachineApp*)AfxGetApp())->HistoryFile, ((CHM_MachineApp*)AfxGetApp())->UserID, _T("參數設定"), _T("取消編輯"));
 	}
 }
 /*回歸初始設定*/
@@ -281,6 +284,7 @@ void CParameter::OnBnClickedBtnparinit()
         InitParameter();
         WriteParamData();
         RefreshData();
+        WriteHistory(((CHM_MachineApp*)AfxGetApp())->HistoryFile, ((CHM_MachineApp*)AfxGetApp())->UserID, _T("參數設定"), _T("回歸初始設定"));
     }
 }
 /*選擇加減速型態*/

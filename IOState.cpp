@@ -294,6 +294,7 @@ void CIOState::OnBnClickedBtniocompiler()
         {
             m_OldOBuffer[i] = m_OutputState[i];
         }
+        WriteHistory(((CHM_MachineApp*)AfxGetApp())->HistoryFile, ((CHM_MachineApp*)AfxGetApp())->UserID, _T("I/O設定"), _T("編輯I/O"));
 	}
 	else
 	{
@@ -312,6 +313,7 @@ void CIOState::OnBnClickedBtniocompiler()
             m_OutputState[i] = m_OldOBuffer[i];
         }
         MyUpdateData(TRUE, m_InputState, TRUE, m_OutputState, FALSE, TRUE);
+        WriteHistory(((CHM_MachineApp*)AfxGetApp())->HistoryFile, ((CHM_MachineApp*)AfxGetApp())->UserID, _T("I/O設定"), _T("取消編輯"));
 	}
 }
 /*設定完成*/
@@ -331,6 +333,7 @@ void CIOState::OnBnClickedBtnsetfinish()
         MyUpdateData(TRUE,m_InputState,TRUE,m_OutputState,TRUE,TRUE);
 		WriteIOData();
         OnBnClickedBtniorefresh();
+        WriteHistory(((CHM_MachineApp*)AfxGetApp())->HistoryFile, ((CHM_MachineApp*)AfxGetApp())->UserID, _T("I/O設定"), _T("編輯完成"));
 	}
 }
 /*Input開關*/
