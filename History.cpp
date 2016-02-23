@@ -75,7 +75,7 @@ BOOL CHistory::OnInitDialog()
     ((CComboBox*)GetDlgItem(IDC_CMBHISACTION))->GetLBText(0, Action);
     m_DateTimeStart.GetTime(Begin);
     m_DateTimeEnd.GetTime(End);
-    SearchReadHistoty(&((CHM_MachineApp*)AfxGetApp())->HistoryFile, _T("History.txt"), &m_HistoryList, 
+    SearchReadHistoty(&((CHM_MachineApp*)AfxGetApp())->HistoryFile, GetModulePath()+_T("History.txt"), &m_HistoryList,
         Begin, End, Account, Action);
     return TRUE;  // return TRUE unless you set the focus to a control
                   // EXCEPTION: OCX 屬性頁應傳回 FALSE
@@ -85,7 +85,7 @@ void CHistory::ReadAccountData() {
     CFile File;
     int ListCount = 0, UserCount = 3;
     CString StrBuff;
-    if (File.Open(_T("Account.dat"), CFile::modeRead)) {//打開檔案
+    if (File.Open(GetModulePath()+_T("Account.dat"), CFile::modeRead)) {//打開檔案
         CArchive ar(&File, CArchive::load);//讀取入檔案
         ar >> ListCount;//讀出使用者總數
         for (int i = 0; i < ListCount * 3; i++) {
@@ -236,7 +236,7 @@ void CHistory::OnSelchangeComboBox()
     ((CComboBox*)GetDlgItem(IDC_CMBHISACTION))->GetLBText(((CComboBox*)GetDlgItem(IDC_CMBHISACTION))->GetCurSel(), Action);
     m_DateTimeStart.GetTime(Begin);
     m_DateTimeEnd.GetTime(End);
-    SearchReadHistoty(&((CHM_MachineApp*)AfxGetApp())->HistoryFile, _T("History.txt"), &m_HistoryList,
+    SearchReadHistoty(&((CHM_MachineApp*)AfxGetApp())->HistoryFile, GetModulePath()+_T("History.txt"), &m_HistoryList,
         Begin, End, Account, Action);
 }
 /*日期發生改變*/
@@ -250,7 +250,7 @@ void CHistory::OnDatetimechangeDate(NMHDR *pNMHDR, LRESULT *pResult)
     ((CComboBox*)GetDlgItem(IDC_CMBHISACTION))->GetLBText(((CComboBox*)GetDlgItem(IDC_CMBHISACTION))->GetCurSel(), Action);
     m_DateTimeStart.GetTime(Begin);
     m_DateTimeEnd.GetTime(End);
-    SearchReadHistoty(&((CHM_MachineApp*)AfxGetApp())->HistoryFile, _T("History.txt"), &m_HistoryList,
+    SearchReadHistoty(&((CHM_MachineApp*)AfxGetApp())->HistoryFile, GetModulePath()+_T("History.txt"), &m_HistoryList,
         Begin, End, Account, Action);
     *pResult = 0;
 }
@@ -258,6 +258,6 @@ void CHistory::OnDatetimechangeDate(NMHDR *pNMHDR, LRESULT *pResult)
 void CHistory::OnBnClickedBtnhiscsearchall()
 {
     // TODO: 在此加入控制項告知處理常式程式碼
-    ReadAllHistory(m_HistoryList, ((CHM_MachineApp*)AfxGetApp())->HistoryFile, _T("History.txt"));
+    ReadAllHistory(m_HistoryList, ((CHM_MachineApp*)AfxGetApp())->HistoryFile, GetModulePath()+_T("History.txt"));
 }
 

@@ -196,7 +196,7 @@ void CIOState::EditTextVertical(CEdit *m_EditCtrl) {
 /*寫入檔案*/
 void CIOState::WriteIOData() {
 	CFile File;
-	if (File.Open(_T("IOData.txt"), CFile::modeCreate | CFile::modeWrite)) {
+	if (File.Open(GetModulePath()+_T("IOData.txt"), CFile::modeCreate | CFile::modeWrite)) {
 		CArchive ar(&File, CArchive::store);
 		for (int i = 0; i < 48; i++)
 		{
@@ -215,7 +215,7 @@ void CIOState::WriteIOData() {
 /*讀取檔案*/
 void CIOState::ReadIOData() {
 	CFile File;
-	if (File.Open(_T("IOData.txt"), CFile::modeRead)) {//打開檔案
+	if (File.Open(GetModulePath()+_T("IOData.txt"), CFile::modeRead)) {//打開檔案
 		CArchive ar(&File, CArchive::load);//讀取入檔案
 		for (int i = 0; i < 48; i++)
 		{

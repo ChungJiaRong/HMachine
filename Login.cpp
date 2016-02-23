@@ -52,7 +52,7 @@ void CLogin::OnOK()
 	GetDlgItemText(IDC_EDITPASSWORD, UserPwd);
 	CFile File;
 	int UserCount = 0;
-	if (File.Open(_T("Account.dat"), CFile::modeRead)) {//打開檔案
+	if (File.Open(GetModulePath()+_T("Account.dat"), CFile::modeRead)) {//打開檔案
 		CArchive ar(&File, CArchive::load);//讀取入檔案
 		ar >> UserCount;
 		m_UserData.SetSize(UserCount * 3);

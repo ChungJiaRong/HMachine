@@ -16,7 +16,6 @@ CAdministration::CAdministration(CWnd* pParent /*=NULL*/)
 	,m_ActionChoose(0)
 	,m_ListCount(0)
 {
-
 }
 CAdministration::~CAdministration()
 {
@@ -35,8 +34,6 @@ BEGIN_MESSAGE_MAP(CAdministration, CDialogEx)
 	ON_BN_CLICKED(IDC_BTNADMINCHECK, &CAdministration::OnBnClickedBtnadmincheck)
 	ON_NOTIFY(NM_CLICK, IDC_LISTADMINUSER, &CAdministration::OnClickListadminuser)
 END_MESSAGE_MAP()
-
-
 // CAdministration 訊息處理常式
 BOOL CAdministration::OnInitDialog()
 {
@@ -290,7 +287,7 @@ void CAdministration::ReadAccountData() {
 	m_ListCtrlUser.DeleteAllItems();//清空列表
 	CFile File;
 	CString StrBuff;
-	if (File.Open(_T("Account.dat"), CFile::modeRead)) {//打開檔案
+	if (File.Open(GetModulePath()+_T("Account.dat"), CFile::modeRead)) {//打開檔案
 		CArchive ar(&File, CArchive::load);//讀取入檔案
 		ar >> m_ListCount;//讀出使用者總數
 		m_UserData.SetSize(m_ListCount*3);
@@ -307,7 +304,7 @@ void CAdministration::ReadAccountData() {
 /*寫入使用者資料*/
 void CAdministration::WriteAccountData() {
 	CFile File;
-	if (File.Open(_T("Account.dat"), CFile::modeCreate | CFile::modeWrite)) {
+	if (File.Open(GetModulePath()+_T("Account.dat"), CFile::modeCreate | CFile::modeWrite)) {
 		CArchive ar(&File, CArchive::store);
 		ar << m_ListCount;//寫入使用者總數
 		for (int i = 0; i < m_ListCount * 3; i++) {

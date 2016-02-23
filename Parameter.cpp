@@ -164,7 +164,7 @@ void CParameter::InitParameter() {
 /*寫入檔案*/
 void CParameter::WriteParamData() {
 	CFile File;
-	if (File.Open(_T("Parameter.txt"), CFile::modeCreate | CFile::modeWrite)) {
+	if (File.Open(GetModulePath()+_T("Parameter.txt"), CFile::modeCreate | CFile::modeWrite)) {
 		CArchive ar(&File, CArchive::store);
 		ar << OSpeed << OLSpeed
 			<< HSpeed.Init << HSpeed.Add << HSpeed.End
@@ -179,7 +179,7 @@ void CParameter::WriteParamData() {
 /*讀取檔案*/
 void CParameter::ReadParamData() {
 	CFile File;
-	if (File.Open(_T("Parameter.txt"), CFile::modeRead)) {//打開檔案
+	if (File.Open(GetModulePath()+_T("Parameter.txt"), CFile::modeRead)) {//打開檔案
 		CArchive ar(&File, CArchive::load);//讀取入檔案
 		ar >> OSpeed >> OLSpeed
 			>> HSpeed.Init >> HSpeed.Add >> HSpeed.End
