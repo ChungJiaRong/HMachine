@@ -19,17 +19,25 @@ extern "C" _declspec(dllexport) void VI_ModelDefine(CWnd* IDC_ModelOneWindow);
 //更改框框
 extern "C" _declspec(dllexport) void VI_ChangeRec(CWnd* IDC_ModelOneWindow,int x,int y);
 //獲取model1並儲存，傳入放置model2視窗，Path放路徑(需用\\)，Name放名稱
-extern "C" _declspec(dllexport) void VI_GetModel1(CWnd* IDC_ModelOneWindow,CString Path,CString Name);
-//獲取model2並儲存
-extern "C" _declspec(dllexport) void VI_GetModel2(CWnd* IDC_ModelTwoWindow,CString Path,CString Name);
-//model1比對(Offset皆回傳整數，Angle回傳浮點數)
-extern "C" _declspec(dllexport) void VI_FindModel1(double &OffSetX,double &OffSetY,double &Angle,CWnd* IDC_ShowWindow,CString Path,CString Name);
-//model2比對
-extern "C" _declspec(dllexport) void VI_FindModel2(double &OffSetX2,double &OffSetY2,double &Angle2,CWnd* IDC_ShowWindow,CString Path,CString Name);
+extern "C" _declspec(dllexport) void VI_GetModel(CWnd* IDC_ModelOneWindow,CString Path,CString Name);
+//model比對(Model放model,如有找到則把圖放進指標pic);
+extern "C" _declspec(dllexport) bool VI_SearchModel(CWnd* IDC_ShowWindow,void* Model,void* Pic);
+//model2比對(請使用上面的，測試)
+extern "C" _declspec(dllexport)void VI_FindModel1(double &OffSetX,double &OffSetY,double &Angle,CWnd* IDC_ShowWindow,void* Model);
 //停止
 extern "C" _declspec(dllexport) void VI_Free();
+//停止
+extern "C" _declspec(dllexport) void VI_FreeApp();
 //切換視窗
 extern "C" _declspec(dllexport) void VI_ChangeWindow(CWnd* IDC_ShowWindow);
+//對位點拍圖給指標
+extern "C" _declspec(dllexport) void VI_Getpicture(void* Model);
+//獲取指標圖像(測試)
+extern "C" _declspec(dllexport) void VI_Showpicture(void* Pic);
+//獲取指標model
+extern "C" _declspec(dllexport) void VI_Load(CString Path,CString Name,void* Model);
+//獲取兩指標圖像比對回傳偏差值
+extern "C" _declspec(dllexport)  void VI_FindModel(void *PicTemp,void *PicTemp1,void* Model,void* Model1,double &OffSetX,double &OffSetY,double &Angle);
 class CVI_DllApp : public CWinApp
 {
 public:
