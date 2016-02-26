@@ -3,7 +3,7 @@
 #include "afxcmn.h"
 #include "afxwin.h"
 #include "MoveButton.h"
-
+#include "GlueEdit.h"
 
 //CCompiler¹ï¸Ü¤è¶ô
 
@@ -21,7 +21,7 @@ public:
 #endif
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Žx?
+	virtual void DoDataExchange(CDataExchange* pDX);  
     virtual BOOL OnInitDialog();
     virtual BOOL PreTranslateMessage(MSG* pMsg);
 	DECLARE_MESSAGE_MAP()
@@ -32,6 +32,7 @@ public:
 	CStringArray m_WorkData,m_PosData,m_ZData;
     CMoveButton m_Yup, m_Ydown, m_Xup, m_Xdown, m_Zup, m_Zdown;
 	int m_ListWKCount,m_ListPSCount;
+    UINT m_GlueTime;
 //¤èªk
 public:
     afx_msg void OnPaint();
@@ -47,8 +48,8 @@ public:
 	afx_msg void OnBnClickedBtncomstandchk1();
 	afx_msg void OnBnClickedBtncomstandchk2();
 	afx_msg void OnBnClickedBtncomoriginw();
-    afx_msg void OnBnClickedBtncommovexy();
-    afx_msg void OnBnClickedBtncommovez();
+    afx_msg void OnBnClickedBtncommovexyz();
+    afx_msg void OnBnClickedBtncomwait();
     afx_msg void OnBnClickedBtncomzdowncheck();
     afx_msg void OnBnClickedBtncomzupcheck();
 	afx_msg void OnBnClickedBtncomworkfinish();
@@ -66,4 +67,6 @@ public:
     void EditTextVertical(CEdit *m_EditCtrl);
     void WorkListRefresh(BOOL ScrollBarRefresh);   
     void MoveXYZ(int MoveX, int MoveY, int MoveZ);
+    afx_msg void OnBnClickedRadcomapply();
+    afx_msg void OnBnClickedRadcomspot();
 };

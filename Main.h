@@ -2,12 +2,19 @@
 #include "afxcmn.h"
 #include "afxwin.h"
 #define WM_WORKLIST WM_USER + 1
+#define WM_ERRORXY WM_USER + 2
 struct WorkPoint {
     HWND hwnd;
     int WorkCount;
+    UINT GlueTime;
     CStringArray* Work;
     CString StandPos1, StandPos2;
     CString m_ZDataDown, m_ZDataUp;
+    
+};
+struct XYError {
+    double X;
+    double Y;
 };
 static CWinThread* g_pThreadRun;
 static BOOL g_ThreadClose = FALSE;
@@ -32,10 +39,11 @@ protected:
 //ÄÝ©Ê
 public:
 	CRect  m_InitRect;
+    CListCtrl m_ListCtrlWork;
     CStringArray m_MainWorkData;
     int m_MainListWKCount;
 	CString m_MainPosData1,m_MainPosData2,m_MainZDataDown,m_MainZDataUp;
-	CListCtrl m_ListCtrlWork;
+    UINT m_MainGlueTime;
 //¤èªk
 public:
 	void ChangeSize(CWnd* pWnd, int cx, int cy);
@@ -47,7 +55,9 @@ public:
 	afx_msg void OnPaint();
     afx_msg void OnTimer(UINT_PTR nIDEvent);
     afx_msg LRESULT OnListRefresh(WPARAM wParam, LPARAM lParam);
+    afx_msg LRESULT OnXYRefresh(WPARAM wParam, LPARAM lParam);
     static void ModifyWork(LONG & PointX, LONG & PointY, double OffSetX, double OffSetY, double Angle);
     static LONG CStringToXY(CString Data, int Choose);
     static UINT Run(LPVOID pParam);
+    static DWORD WINAPI GummingTimeOutThread(LPVOID);
 };

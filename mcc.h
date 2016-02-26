@@ -35,6 +35,7 @@ MO_DLL void MO_ReadSoftLim(bool &bSoftX, bool &bSoftY, bool &bSoftZ);//Åª¨ú³nÅé·
 MO_DLL void MO_ReadRunHardLim(int &iPMLimX, bool &bIsOkLimX, int &iPMLimY, bool &bIsOkLimY, int &iPMLimZ, bool &bIsOkLimZ);//Åª¨ú¬O§_¦bµwÅé·¥­­¶}Ãö¤W¥H¤Î¹B¦æª¬ºA
 MO_DLL void MO_ReadMotoAlarm(bool &bMotoSignalX,bool &bMotoSignalY,bool &bMotoSignalZ);//¦øªA°¨¹F¿é¤J°T¸¹²§±`(¦øªA°¨¹F±M¥Î)
 MO_DLL void MO_ReadEMG(bool &bEMGX,bool &bEMGY,bool &bEMGZ);//Åª¨úÅX°Ê¤¤ºò«æ°±¤îª¬ºA
+MO_DLL void MO_ReadSoftLimError(bool bPM, bool &bSoftX, bool &bSoftY, bool &bSoftZ);//Åª¨ú³nÅé·¥­­¶}Ãö°õ¦æª¬ºA
 MO_DLL void MO_ReadHomeError(bool &bHomeErrorX,bool &bHomeErrorY,bool &bHomeErrorZ);//Åª¨ú¦U¶b­ìÂI´_Âk¿ù»~ª¬ºA
 MO_DLL void MO_ReadIP(bool &bIPX,bool &bIPY,bool &bIPZ);//Åª¨ú¦U¶b´¡¸É¿ù»~ª¬ºA
 MO_DLL void MO_AlarmCClean();//¿ù»~ª¬ºA²M°£
@@ -45,6 +46,12 @@ MO_DLL void MO_SetJerk(int iAxis, long lSpeed);//³]¸m¥[³t«×¼W¥[²v(¥Î©óS«¬¦±½u)
 MO_DLL void MO_SetDJerk(int iAxis, long lSpeed); //³]¸m´î³t«×¼W¥[²v(¥Î©ó«D¹ïºÙS«¬¦±½u)
 MO_DLL void MO_SetDecPation(ULONG ulPationX, ULONG ulPationY, ULONG ulPationZ);//³]¸m´î³t«×ÂI(¥Î©ó«D¹ïºÙS«¬¦±½u)
 MO_DLL void MO_SetDecOK(bool bData);//³]¸m´¡¸É´î³t°±¤î¦³µL®Ä
+MO_DLL long MO_Timer(int iMode, int iTimerNo, long lData);//­p®É¾¹
+MO_DLL bool MO_ReadGumming();//Åª¨ú¥X½¦±±¨îª¬ºA
+MO_DLL void MO_GummingSet(long lMicroSecond, LPTHREAD_START_ROUTINE GummingTimeOutThread);//³]¸m¥X½¦¬í¼Æ¡A³æ¦ì[us]
+MO_DLL void MO_FinishGumming();//¥X½¦§¹¦¨
+MO_DLL void MO_StopGumming();//°±¤î¥X½¦
+MO_DLL void MO_Do3DLineMove(long lXTar, long lYTar, long lZTar, long lSpeed, long lAcceleration, long lInitSpeed);
 // CmccApp
 // ³o­ÓÃþ§Oªº¹ê§@½Ð°Ñ¾\ mcc.cpp
 //

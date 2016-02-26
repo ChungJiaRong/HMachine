@@ -75,6 +75,9 @@
     <ClInclude Include="History.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="GlueEdit.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HM_Machine.cpp">
@@ -126,6 +129,9 @@
       <Filter>原始程式檔</Filter>
     </ClCompile>
     <ClCompile Include="History.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="GlueEdit.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
   </ItemGroup>
@@ -202,12 +208,6 @@
       <Filter>資源檔</Filter>
     </Image>
     <Image Include="res\Win.ico">
-      <Filter>資源檔</Filter>
-    </Image>
-    <Image Include="D:\Desktop\1453450518_free-05.ico">
-      <Filter>資源檔</Filter>
-    </Image>
-    <Image Include="D:\Desktop\1453450523_free-09.ico">
       <Filter>資源檔</Filter>
     </Image>
     <Image Include="res\icon3.ico">

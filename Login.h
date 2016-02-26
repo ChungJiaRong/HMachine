@@ -25,7 +25,6 @@ public:
     CStringArray m_UserData;
 //¤èªk
 public:
-    afx_msg void OnBnClickedBtnaccountclean();
     virtual void OnOK();
     virtual void OnCancel();
     afx_msg void OnShowWindow(BOOL bShow, UINT nStatus);

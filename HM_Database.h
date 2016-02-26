@@ -17,6 +17,5 @@ public:
     void Serialize(CArchive& ar);
     void WKArrayCopy(CStringArray* pCStrA,UINT Count);
     void PSArrayCopy(CStringArray * pCStrA, UINT Count);
-    void ZArrayCopy(CStringArray * pCStrA, UINT Count);
 };
 

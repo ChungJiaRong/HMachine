@@ -25,7 +25,9 @@ extern "C" _declspec(dllexport) bool VI_SearchModel(CWnd* IDC_ShowWindow,void* M
 //model2比對(請使用上面的，測試)
 extern "C" _declspec(dllexport)void VI_FindModel1(double &OffSetX,double &OffSetY,double &Angle,CWnd* IDC_ShowWindow,void* Model);
 //停止
-extern "C" _declspec(dllexport) void VI_Free();
+extern "C" _declspec(dllexport) void VI_FreeModel(void* Model);
+//停止
+extern "C" _declspec(dllexport) void VI_FreePic(void* Pic);
 //停止
 extern "C" _declspec(dllexport) void VI_FreeApp();
 //切換視窗

@@ -30,7 +30,6 @@ void CLogin::DoDataExchange(CDataExchange* pDX)
 }
 
 BEGIN_MESSAGE_MAP(CLogin, CDialogEx)
-	ON_BN_CLICKED(IDC_BTNACCOUNTCLEAN, &CLogin::OnBnClickedBtnaccountclean)
 	ON_WM_SHOWWINDOW()
 END_MESSAGE_MAP()
 
@@ -93,6 +92,8 @@ void CLogin::OnOK()
 		if (!Check)
 		{
 			MessageBox(_T("你的帳密有誤!!"));
+            SetDlgItemText(IDC_EDITACCOUNT, _T(""));
+            SetDlgItemText(IDC_EDITPASSWORD, _T(""));
 		}
 	}
 }
@@ -105,12 +106,4 @@ void CLogin::OnCancel()
 		CDialogEx::OnCancel();
 	}
 }
-/*清空欄位*/
-void CLogin::OnBnClickedBtnaccountclean()
-{
-	// TODO: 在此加入控制項告知處理常式程式碼
-	GetDlgItem(IDC_EDITACCOUNT)->SetWindowText(_T(""));
-	GetDlgItem(IDC_EDITPASSWORD)->SetWindowText(_T(""));
-}
-
 
