@@ -23,7 +23,7 @@ extern "C" _declspec(dllexport) void VI_GetModel(CWnd* IDC_ModelOneWindow,CStrin
 //model比對(Model放model,如有找到則把圖放進指標pic);
 extern "C" _declspec(dllexport) bool VI_SearchModel(CWnd* IDC_ShowWindow,void* Model,void* Pic);
 //model2比對(請使用上面的，測試)
-extern "C" _declspec(dllexport)void VI_FindModel1(double &OffSetX,double &OffSetY,double &Angle,CWnd* IDC_ShowWindow,void* Model);
+extern "C" _declspec(dllexport)void VI_FindModel1(double &OffSetX,double &OffSetY,double &Angle,void* Pic,void* Model);
 //停止
 extern "C" _declspec(dllexport) void VI_FreeModel(void* Model);
 //停止
