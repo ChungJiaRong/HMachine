@@ -80,7 +80,7 @@ BOOL CParameter::OnInitDialog()
 	m_ListCtrlParame.InsertColumn(0, _T("編號"), LVCFMT_CENTER, 40, -1);
 	m_ListCtrlParame.InsertColumn(1, _T("項目"), LVCFMT_CENTER, 100, -1);
 	m_ListCtrlParame.InsertColumn(2, _T("狀態"), LVCFMT_CENTER, 160, -1);
-	for (int i = 0; i < m_ListCount; i++)/*插入項目*/
+	for (int i = 0; i < m_ListCount + 1; i++)/*插入項目*/
 	{
 		CString StrBuff;
 		StrBuff.Format(_T("%d"), i + 1);
@@ -406,6 +406,7 @@ void CParameter::OnTimer(UINT_PTR nIDEvent)
 	m_ListCtrlParame.SetItemText(9, 2, StrBuff);
 	StrBuff.Format(_T("%d"), MO_ReadAccDec(0));
 	m_ListCtrlParame.SetItemText(10, 2, StrBuff);
+    m_ListCtrlParame.SetItemText(11, 2, MO_StreamToUnit(MO_ReadReg(0, 0)));
 #endif // MOVE
 	for (int i = 0; i < 3; i++)
 	{

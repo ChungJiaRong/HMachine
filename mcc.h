@@ -52,6 +52,8 @@ MO_DLL void MO_GummingSet(long lMicroSecond, LPTHREAD_START_ROUTINE GummingTimeO
 MO_DLL void MO_FinishGumming();//出膠完成
 MO_DLL void MO_StopGumming();//停止出膠
 MO_DLL void MO_Do3DLineMove(long lXTar, long lYTar, long lZTar, long lSpeed, long lAcceleration, long lInitSpeed);
+MO_DLL long MO_ReadReg(int iRegSelect, int iAxis);//讀取暫存器RR0~RR3
+MO_DLL CString MO_StreamToUnit(int iValue);//數字轉換成CString 16-bit binary
 // CmccApp
 // 這個類別的實作請參閱 mcc.cpp
 //
