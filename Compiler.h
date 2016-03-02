@@ -61,12 +61,15 @@ public:
 	afx_msg void OnListdelete();
 	afx_msg void OnNMDblclkListcomwork(NMHDR *pNMHDR, LRESULT *pResult);
     afx_msg void OnEditChange(UINT uId);
+    afx_msg void OnZActionChange(UINT uId);
+    afx_msg void OnMoveTypeChange(UINT uId);
+
+    int DataToWorkData();
 
     void ChangeSize(CWnd* pWnd, int cx, int cy);
     void InitVariable();
     void EditTextVertical(CEdit *m_EditCtrl);
     void WorkListRefresh(BOOL ScrollBarRefresh);   
     void MoveXYZ(int MoveX, int MoveY, int MoveZ);
-    afx_msg void OnBnClickedRadcomapply();
-    afx_msg void OnBnClickedRadcomspot();
+    
 };

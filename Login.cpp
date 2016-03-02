@@ -21,7 +21,7 @@ CLogin::CLogin(CWnd* pParent /*=NULL*/)
 CLogin::~CLogin()
 {
    /* m_UserData.FreeExtra();
-    m_UserData.RemoveAll();*/
+	m_UserData.RemoveAll();*/
 }
 
 void CLogin::DoDataExchange(CDataExchange* pDX)
@@ -38,7 +38,7 @@ void CLogin::OnShowWindow(BOOL bShow, UINT nStatus)
 {
 	CDialogEx::OnShowWindow(bShow, nStatus);
 	//SetWindowLong(this->m_hWnd, GWL_EXSTYLE, WS_EX_APPWINDOW);//設置窗口在下面任務覽顯示
-    ::SetWindowPos(m_hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);//設置視窗永遠在最上層
+	::SetWindowPos(m_hWnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);//設置視窗永遠在最上層
 	AfxGetMainWnd()->ShowWindow(SW_HIDE);//不能寫在Create，因為程式未創建完成就被隱藏會出錯
 	CenterWindow();//顯示在螢幕中間                                                                    
 }
@@ -61,12 +61,12 @@ void CLogin::OnOK()
 		}
 		File.Close();
 	}
-    if (UserID == _T("root") && UserPwd == _T("0000")) {//管理員帳密
-        ((CHM_MachineApp*)AfxGetApp())->UserID = UserID;
-        ((CHM_MachineApp*)AfxGetApp())->UserPwd = UserPwd;
-        ((CHM_MachineApp*)AfxGetApp())->Post = _T("工程師");
-        CDialogEx::OnOK();//關閉對話框返回ok
-    }
+	if (UserID == _T("root") && UserPwd == _T("0000")) {//管理員帳密
+		((CHM_MachineApp*)AfxGetApp())->UserID = UserID;
+		((CHM_MachineApp*)AfxGetApp())->UserPwd = UserPwd;
+		((CHM_MachineApp*)AfxGetApp())->Post = _T("工程師");
+		CDialogEx::OnOK();//關閉對話框返回ok
+	}
 	else if (UserID == _T("admin") && UserPwd == _T("123")) {//管理員帳密
 		ShowWindow(SW_HIDE);
 		CAdministration Dlg;
@@ -92,8 +92,8 @@ void CLogin::OnOK()
 		if (!Check)
 		{
 			MessageBox(_T("你的帳密有誤!!"));
-            SetDlgItemText(IDC_EDITACCOUNT, _T(""));
-            SetDlgItemText(IDC_EDITPASSWORD, _T(""));
+			SetDlgItemText(IDC_EDITACCOUNT, _T(""));
+			SetDlgItemText(IDC_EDITPASSWORD, _T(""));
 		}
 	}
 }
