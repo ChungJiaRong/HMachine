@@ -6,12 +6,11 @@ IMPLEMENT_SERIAL(CHM_Database, CObject, 1)
 CHM_Database::CHM_Database()
 {
 }
-CHM_Database::CHM_Database(CString m_ptOrigin, CString m_ptEnd, CString m_Action , CString m_MoveType ,CString m_ptGlueheight) {
+CHM_Database::CHM_Database(CString m_ptOrigin, CString m_ptEnd, CString m_Action , CString m_MoveType) {
     this->m_ptOrigin = m_ptOrigin;
     this->m_ptEnd = m_ptEnd;
     this->m_Action = m_Action;
     this->m_MoveType = m_MoveType;
-    this->m_ptGlueheight = m_ptGlueheight;
 }
 
 CHM_Database::CHM_Database(CString m_Stand) {
@@ -30,10 +29,9 @@ void CHM_Database::Serialize(CArchive& ar) {
 }
 void CHM_Database::WKArrayCopy(CStringArray* pCStrA, UINT Count)
 {
-    pCStrA->InsertAt(Count * 4, m_ptEnd);
-    pCStrA->InsertAt(Count * 4 + 1, m_Action);
-    pCStrA->InsertAt(Count * 4 + 2, m_MoveType);
-    pCStrA->InsertAt(Count * 4 + 3, m_ptGlueheight);
+    pCStrA->InsertAt(Count * 3, m_ptEnd);
+    pCStrA->InsertAt(Count * 3 + 1, m_Action);
+    pCStrA->InsertAt(Count * 3 + 2, m_MoveType);
 }
 void CHM_Database::PSArrayCopy(CStringArray* pCStrA, UINT Count)
 {

@@ -39,7 +39,7 @@ extern "C" _declspec(dllexport) void VI_Showpicture(void* Pic);
 //獲取指標model
 extern "C" _declspec(dllexport) void VI_Load(CString Path,CString Name,void* Model);
 //獲取兩指標圖像比對回傳偏差值
-extern "C" _declspec(dllexport)  void VI_FindModel(void *PicTemp,void *PicTemp1,void* Model,void* Model1,double &OffSetX,double &OffSetY,double &Angle);
+extern "C" _declspec(dllexport) void VI_FindModel(void *PicTemp,void *PicTemp1,void* Model,void* Model1,double LocatX,double LocatY,double LocatX1,double LocatY1,double &OffSetX,double &OffSetY,double &Angle);
 class CVI_DllApp : public CWinApp
 {
 public:

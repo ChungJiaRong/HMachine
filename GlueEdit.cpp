@@ -9,6 +9,7 @@
 #include "HM_MachineDoc.h"
 #include "HM_MachineView.h"
 #include "Compiler.h"
+#include "HM_Database.h"
 
 // CGlueEdit 對話方塊
 
@@ -32,23 +33,19 @@ END_MESSAGE_MAP()
 BOOL CGlueEdit::OnInitDialog()
 {
     CDialogEx::OnInitDialog();
-    // TODO:  在此加入額外的初始化
     CMainFrame *pMain = (CMainFrame*)AfxGetApp()->m_pMainWnd;//獲取已建立的View指針
     CHM_MachineView *pView = (CHM_MachineView *)pMain->GetActiveView();
-    CCompiler* pCompiler = (CCompiler*)pView->m_DlgArray.GetAt(1);
-    if (pCompiler->m_GlueTime != 0)
-    {
-        SetDlgItemInt(IDC_EDITGLTIME, pCompiler->m_GlueTime);
-    }
+    SetDlgItemText(IDC_EDITGLTIME,((CHM_Database*)pView->GetDocument()->m_OtherArray.GetAt(1))->m_Stand);
     return TRUE;
 }
 void CGlueEdit::OnBnClickedOk()
 {
-    // TODO: 在此加入控制項告知處理常式程式碼
     CMainFrame *pMain = (CMainFrame*)AfxGetApp()->m_pMainWnd;//獲取已建立的View指針
     CHM_MachineView *pView = (CHM_MachineView *)pMain->GetActiveView();
-    CCompiler* pCompiler = (CCompiler*)pView->m_DlgArray.GetAt(1);
-    pCompiler->m_GlueTime = GetDlgItemInt(IDC_EDITGLTIME);
+    CString StrBuff;
+    GetDlgItemText(IDC_EDITGLTIME, StrBuff);
+    CHM_Database *pHM_Database = new CHM_Database(StrBuff);
+    pView->GetDocument()->m_OtherArray.SetAt(1, pHM_Database);
     CDialogEx::OnOK();
 }
 

@@ -28,11 +28,10 @@ protected:
 //ÄÝ©Ê
 public:
 	CRect  m_InitRect;
-	CListCtrl m_ListCtrlPos, m_ListCtrlWork, m_ListCtrlZ;;
-	CStringArray m_WorkData,m_PosData,m_ZData;
+	CListCtrl m_ListCtrlPos, m_ListCtrlWork;
+	CStringArray m_WorkData,m_PosData,m_OtherData;
     CMoveButton m_Yup, m_Ydown, m_Xup, m_Xdown, m_Zup, m_Zdown;
-	int m_ListWKCount,m_ListPSCount;
-    UINT m_GlueTime;
+	int m_ListWKCount,m_ListPSCount,m_ListOTCount;
 //¤èªk
 public:
     afx_msg void OnPaint();
@@ -50,8 +49,8 @@ public:
 	afx_msg void OnBnClickedBtncomoriginw();
     afx_msg void OnBnClickedBtncommovexyz();
     afx_msg void OnBnClickedBtncomwait();
-    afx_msg void OnBnClickedBtncomzdowncheck();
-    afx_msg void OnBnClickedBtncomzupcheck();
+    afx_msg void OnBnClickedBtncomgui();
+    afx_msg void OnBnClickedBtncompickup();
 	afx_msg void OnBnClickedBtncomworkfinish();
     afx_msg void OnBnClickedBtncomdispensing();
 
