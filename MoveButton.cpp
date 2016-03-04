@@ -33,15 +33,12 @@ END_MESSAGE_MAP()
 /*按鈕按下*/
 void CMoveButton::OnLButtonDown(UINT nFlags, CPoint point)
 {
-    // TODO: 在此加入您的訊息處理常式程式碼和 (或) 呼叫預設值
-    
-    SetTimer(1, 100, NULL);   
+    SetTimer(1, 1, NULL);   
     CButton::OnLButtonDown(nFlags, point);
 }
 /*按鈕放開*/
 void CMoveButton::OnLButtonUp(UINT nFlags, CPoint point)
 {
-    // TODO: 在此加入您的訊息處理常式程式碼和 (或) 呼叫預設值
 #ifdef MOVE
     MO_DecSTOP();
 #endif // MOVE
@@ -51,7 +48,6 @@ void CMoveButton::OnLButtonUp(UINT nFlags, CPoint point)
 /*計數執行次數*/
 void CMoveButton::OnTimer(UINT_PTR nIDEvent)
 {
-    // TODO: 在此加入您的訊息處理常式程式碼和 (或) 呼叫預設值
     CMainFrame *pMain = (CMainFrame*)AfxGetApp()->m_pMainWnd;//獲取已建立的View指針
     CHM_MachineView *pView = (CHM_MachineView *)pMain->GetActiveView();
     CParameter* pParameter = (CParameter*)pView->m_DlgArray.GetAt(2);

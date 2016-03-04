@@ -6,15 +6,14 @@
 struct WorkPoint {
     HWND hwnd;
     int WorkCount;
-    UINT GlueTime;
     CStringArray* Work;
     CString StandPos1, StandPos2;
-    CString m_ZDataDown, m_ZDataUp;
-    
+    CString PickUp , GlueTime;   
 };
 struct XYError {
     double X;
     double Y;
+    double Angle;
 };
 static CWinThread* g_pThreadRun;
 static BOOL g_ThreadClose = FALSE;
@@ -41,9 +40,8 @@ public:
 	CRect  m_InitRect;
     CListCtrl m_ListCtrlWork;
     CStringArray m_MainWorkData;
-    int m_MainListWKCount;
-	CString m_MainPosData1,m_MainPosData2,m_MainZDataDown,m_MainZDataUp;
-    UINT m_MainGlueTime;
+    int m_MainWorkCount;
+	CString m_MainPosData1,m_MainPosData2, m_MainPickUp , m_MainGlueTime;
 //¤èªk
 public:
 	void ChangeSize(CWnd* pWnd, int cx, int cy);
@@ -57,7 +55,9 @@ public:
     afx_msg LRESULT OnListRefresh(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnXYRefresh(WPARAM wParam, LPARAM lParam);
     static void ModifyWork(LONG & PointX, LONG & PointY, double OffSetX, double OffSetY, double Angle);
+    static void ModifyWork1(LONG & PointX, LONG & PointY, LONG StandX, LONG StandY, double OffSetX, double OffSetY, double Andgle);
     static LONG CStringToXY(CString Data, int Choose);
     static UINT Run(LPVOID pParam);
     static DWORD WINAPI GummingTimeOutThread(LPVOID);
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
 };

@@ -20,11 +20,12 @@ MO_DLL void MO_MoveToHome(long lSpeed1, long lSpeed2, int iAxis, long lMove);//­
 MO_DLL void MO_Do2DLineMove(long lXTar, long lYTar, long lSpeed, long lAcceleration, long lInitSpeed);//XY¨â¶bª½½u¸É¶¡²¾°Ê
 MO_DLL void MO_DoZLineMove(long lZTar, long lSpeed, long lAcceleration, long lInitSpeed);//Z¶bª½½u¸É¶¡²¾°Ê
 MO_DLL void MO_Do2DArcMove(long lXTar, long lYTar, long XCenter, long YCenter, long lInitSpeed, long lSpeed, bool bRevolve);//XY¨â¶b¶ê©·¸É¶¡²¾°Ê
+MO_DLL void MO_Do3DLineMove(long lXTar, long lYTar, long lZTar, long lSpeed, long lAcceleration, long lInitSpeed);//¤T¶bª½½u´¡¸É
 MO_DLL void MO_SetHardLim(int iAxis, bool bSet);//³]¸mµwÅé·¥­­¶}Ãö¦³®Ä
 MO_DLL void MO_SetSoftLim(int iAxis, bool bSet);//³]¸m³nÅé·¥­­¶}Ãö¦³®Ä
 MO_DLL void MO_SetCompSoft(bool bPM, long lCompX, long lCompY, long lCompZ); //³]¸m³nÅé·¥­­½d³ò
 MO_DLL void MO_SetDeceleration(int iAxis, long lDeceleration);//³]¸m´î³t«×
-MO_DLL void MO_SetAccType(int type);//³]¸m¥[´î³t«¬ºA(±è«¬©ÎS«¬)
+MO_DLL void MO_SetAccType(int iType);//³]¸m¥[´î³t«¬ºA(±è«¬©ÎS«¬)
 MO_DLL long MO_ReadLogicPosition(int iAxis);//Åª¨úÅÞ¿è¦ì¸m
 MO_DLL long MO_ReadRealPosition(int iAxis);//Åª¨ú¹ê»Ú¦ì¸m(encoder±M¥Î)
 MO_DLL long MO_ReadSpeed(int iAxis);//Åª¨ú¶bÅX°Ê³t«×
@@ -51,7 +52,10 @@ MO_DLL bool MO_ReadGumming();//Åª¨ú¥X½¦±±¨îª¬ºA
 MO_DLL void MO_GummingSet(long lMicroSecond, LPTHREAD_START_ROUTINE GummingTimeOutThread);//³]¸m¥X½¦¬í¼Æ¡A³æ¦ì[us]
 MO_DLL void MO_FinishGumming();//¥X½¦§¹¦¨
 MO_DLL void MO_StopGumming();//°±¤î¥X½¦
+<<<<<<< HEAD
 MO_DLL void MO_Do3DLineMove(long lXTar, long lYTar, long lZTar, long lSpeed, long lAcceleration, long lInitSpeed);
+=======
+>>>>>>> compiler
 MO_DLL long MO_ReadReg(int iRegSelect, int iAxis);//Åª¨ú¼È¦s¾¹RR0~RR3
 MO_DLL CString MO_StreamToUnit(int iValue);//¼Æ¦rÂà´«¦¨CString 16-bit binary
 // CmccApp

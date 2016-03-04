@@ -445,3 +445,16 @@ void CIOState::OnTimer(UINT_PTR nIDEvent)
         MyUpdateData(TRUE,m_InputState,FALSE,NULL,FALSE,FALSE);
 	CPropertyPage::OnTimer(nIDEvent);
 }
+/*快捷鍵響應*/
+BOOL CIOState::PreTranslateMessage(MSG* pMsg)
+{
+    if (pMsg->wParam == VK_F5)
+    {
+        OnBnClickedBtniorefresh();
+    }
+    if (pMsg->wParam == VK_F8)
+    {
+        OnBnClickedBtnsetfinish();
+    }
+    return CPropertyPage::PreTranslateMessage(pMsg);
+}
