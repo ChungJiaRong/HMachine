@@ -54,4 +54,5 @@ public:
     afx_msg void OnStateClick(UINT uId);
     afx_msg void OnOutputClick(UINT uId);
     afx_msg void OnTimer(UINT_PTR nIDEvent);
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
 };

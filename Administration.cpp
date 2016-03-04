@@ -52,6 +52,8 @@ BOOL CAdministration::OnInitDialog()
 	GetDlgItem(IDC_BTNADMINDELETE)->EnableWindow(FALSE);//關閉刪除
 	ReadAccountData();
 	AccountListRefresh();
+    ((CEdit*)GetDlgItem(IDC_EDITNEWUSERID))->SetCueBanner(_T("注意帳號不可重複"), true);
+    ((CEdit*)GetDlgItem(IDC_EDITNEWPASSWORD))->SetCueBanner(_T("密碼請輸入六位以上"), true);
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX 屬性頁應傳回 FALSE
 }

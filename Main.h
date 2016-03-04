@@ -59,4 +59,5 @@ public:
     static LONG CStringToXY(CString Data, int Choose);
     static UINT Run(LPVOID pParam);
     static DWORD WINAPI GummingTimeOutThread(LPVOID);
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
 };
