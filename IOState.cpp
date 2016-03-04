@@ -85,6 +85,15 @@ BOOL CIOState::OnInitDialog()
     /*設置字體*/
     MyFont->CreateFont(18, 0, 0, 0, FW_NORMAL, FALSE, FALSE, 0, ANSI_CHARSET, OUT_DEFAULT_PRECIS,
         CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY, DEFAULT_PITCH | FF_SWISS, _T("標楷體"));
+    /*工具提示*/
+    m_tooltip.Create(this, TTS_ALWAYSTIP);  //  TTS_BALLOON | TTS_NOFADE | TTS_CLOSE
+    m_tooltip.Activate(TRUE);
+    m_tooltip.AddTool(GetDlgItem(IDC_BTNIOREFRESH), TT_BTNIOREFRESH);
+    m_tooltip.AddTool(GetDlgItem(IDC_BTNIOOPENREFRESH), TT_BTNIOOPENREFRESH);
+    m_tooltip.AddTool(GetDlgItem(IDC_BTNIOCOMPILER), TT_BTNIOCOMPILER);
+    m_tooltip.AddTool(GetDlgItem(IDC_BTNSETFINISH), TT_BTNSETFINISH);
+    m_tooltip.SetDelayTime(TTDT_INITIAL, 200);
+    m_tooltip.SetDelayTime(TTDT_AUTOPOP, 10000);
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX 屬性頁應傳回 FALSE
 }
@@ -455,6 +464,16 @@ BOOL CIOState::PreTranslateMessage(MSG* pMsg)
     if (pMsg->wParam == VK_F8)
     {
         OnBnClickedBtnsetfinish();
+    }
+    /*工具提示*/
+    if (m_tooltip.m_hWnd != NULL)
+    {
+        if (pMsg->message == WM_LBUTTONDOWN ||
+            pMsg->message == WM_LBUTTONUP ||
+            pMsg->message == WM_MOUSEMOVE)
+        {
+            m_tooltip.RelayEvent(pMsg);
+        }
     }
     return CPropertyPage::PreTranslateMessage(pMsg);
 }

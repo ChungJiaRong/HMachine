@@ -42,6 +42,7 @@ public:
     CStringArray m_MainWorkData;
     int m_MainWorkCount;
 	CString m_MainPosData1,m_MainPosData2, m_MainPickUp , m_MainGlueTime;
+    CToolTipCtrl m_tooltip;
 //¤èªk
 public:
 	void ChangeSize(CWnd* pWnd, int cx, int cy);
@@ -56,7 +57,7 @@ public:
     afx_msg LRESULT OnXYRefresh(WPARAM wParam, LPARAM lParam);
     static void ModifyWork(LONG & PointX, LONG & PointY, double OffSetX, double OffSetY, double Angle);
     static void ModifyWork1(LONG & PointX, LONG & PointY, LONG StandX, LONG StandY, double OffSetX, double OffSetY, double Andgle);
-    static LONG CStringToXY(CString Data, int Choose);
+    static LONG CStringToXYZ(CString Data, int Choose);
     static UINT Run(LPVOID pParam);
     static DWORD WINAPI GummingTimeOutThread(LPVOID);
     virtual BOOL PreTranslateMessage(MSG* pMsg);

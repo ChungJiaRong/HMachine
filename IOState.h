@@ -25,10 +25,6 @@ public:
     CRect m_InitRect;
     UINT m_ConCtrlCount;
     CStringArray m_EditInName,m_EditOutName;
-    //CArray<int, int&>m_InputState;
-    //CArray<int, int&>m_OutputState;
-    //CArray<int, int&>m_IBuffer;
-    //CArray<int, int&>m_InputState;
     int m_InputState[12];
     int m_OutputState[12];
     int m_OldIBuffer[12];
@@ -37,6 +33,7 @@ public:
     CEdit* CreateD;
     BOOL m_bBtnEnable;
     CFont* MyFont;
+    CToolTipCtrl m_tooltip;
 //¤èªk
 public:
     afx_msg void OnSize(UINT nType, int cx, int cy);

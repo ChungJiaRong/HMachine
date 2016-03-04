@@ -32,6 +32,7 @@ public:
 	CStringArray m_WorkData,m_PosData,m_OtherData;
     CMoveButton m_Yup, m_Ydown, m_Xup, m_Xdown, m_Zup, m_Zdown;
 	int m_ListWKCount,m_ListPSCount,m_ListOTCount;
+    CToolTipCtrl m_tooltip;
 //¤èªk
 public:
     afx_msg void OnPaint();
@@ -64,6 +65,8 @@ public:
     afx_msg void OnMoveTypeChange(UINT uId);
 
     int DataToWorkData();
+    LONG CycleRCalculation(CString Data1, CString Data2);
+    LONG CStringToXYZ(CString Data, int Choose);
 
     void ChangeSize(CWnd* pWnd, int cx, int cy);
     void InitVariable();

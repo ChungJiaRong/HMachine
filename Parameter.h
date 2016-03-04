@@ -42,6 +42,7 @@ public:
     Speed HSpeed, MSpeed, LSpeed , WSpeed;
     CListCtrl m_ListCtrlParame;
     int m_ListCount;
+    CToolTipCtrl m_tooltip;
 //¤èªk
 public:
     afx_msg void OnSize(UINT nType, int cx, int cy);
@@ -61,4 +62,5 @@ public:
     void SetListItemText(CListCtrl &m_ListCtrl, UINT Item, UINT Count, ...);
     void EditTextVertical(CEdit * m_EditCtrl);
     afx_msg void OnTimer(UINT_PTR nIDEvent);
+    virtual BOOL PreTranslateMessage(MSG* pMsg);
 };

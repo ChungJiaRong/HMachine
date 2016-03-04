@@ -86,19 +86,30 @@ BOOL CParameter::OnInitDialog()
 		StrBuff.Format(_T("%d"), i + 1);
 		m_ListCtrlParame.InsertItem(i, (i<9) ? _T("00") + StrBuff : _T("0") + StrBuff);
 	}
-	/*載入參數資料*/
-	CFileStatus FileStatus;//檔案屬性
-	CFile File;
-	if (!File.GetStatus(_T("Parameter.txt"), FileStatus)) {
-		InitParameter();
-		WriteParamData();
-	}
-	else {
-		ReadParamData();
-	}
+    /*工具提示*/
+    m_tooltip.Create(this, TTS_ALWAYSTIP);  //  TTS_BALLOON | TTS_NOFADE | TTS_CLOSE
+    m_tooltip.Activate(TRUE);
+    m_tooltip.AddTool(GetDlgItem(IDC_BTNPARSETFINISH), TT_BTNPARSETFINISH);
+    m_tooltip.AddTool(GetDlgItem(IDC_BTNPAREDITPAR), TT_BTNPAREDITPAR);
+    m_tooltip.AddTool(GetDlgItem(IDC_BTNPARINIT), TT_BTNPARINIT);
+    m_tooltip.AddTool(GetDlgItem(IDC_CHKPARHLIMIT), TT_CHKPARHLIMIT);
+    m_tooltip.AddTool(GetDlgItem(IDC_CHKPARSLIMIT), TT_CHKPARSLIMIT);
+    m_tooltip.SetDelayTime(TTDT_INITIAL, 200);
+    m_tooltip.SetDelayTime(TTDT_AUTOPOP, 10000);
+    /*載入參數資料*/
+    CFileStatus FileStatus;//檔案屬性
+    CFile File;
+    if (!File.GetStatus(_T("Parameter.txt"), FileStatus)) {
+        InitParameter();
+        WriteParamData();
+    }
+    else {
+        ReadParamData();
+    }
 	RefreshData();//刷新頁面資料
 	SetParameter();//寫入軸卡參數
 	SetTimer(1, 500, 0);//開啟刷新
+   
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX 屬性頁應傳回 FALSE
 }
@@ -146,16 +157,16 @@ void CParameter::InitParameter() {
 	Limit.Pos = Limit.Nedg = Limit.PosZ = Limit.NedgZ = 0;
 	OSpeed = 20000;
 	OLSpeed = 1000;
-	HSpeed.Init = 20000;
-	MSpeed.Init = 15000;
-	LSpeed.Init = 8000;
-	HSpeed.End = 45000;
-	MSpeed.End = 30000;
-	LSpeed.End = 15000;
-	HSpeed.Add = MSpeed.Add = LSpeed.Add = 100;
+	HSpeed.Init = 15000;
+	MSpeed.Init = 10000;
+	LSpeed.Init = 1000;
+	HSpeed.End = 40000;
+	MSpeed.End = 25000;
+	LSpeed.End = 5000;
+	HSpeed.Add = MSpeed.Add = LSpeed.Add = 8000;
 	WSpeed.Init = 10000;
 	WSpeed.End = 30000;
-	WSpeed.Add = 100;
+	WSpeed.Add = 10000;
 	ARSpeedType = 0;
 	RSpeed = 0;
 	R2Speed = 0;
@@ -460,3 +471,19 @@ void CParameter::OnTimer(UINT_PTR nIDEvent)
 	CPropertyPage::OnTimer(nIDEvent);
 }
 
+
+
+BOOL CParameter::PreTranslateMessage(MSG* pMsg)
+{
+    /*工具提示*/
+    if (m_tooltip.m_hWnd != NULL)
+    {
+        if (pMsg->message == WM_LBUTTONDOWN ||
+            pMsg->message == WM_LBUTTONUP ||
+            pMsg->message == WM_MOUSEMOVE)
+        {
+            m_tooltip.RelayEvent(pMsg);
+        }
+    }
+    return CPropertyPage::PreTranslateMessage(pMsg);
+}

@@ -78,6 +78,9 @@
     <ClInclude Include="GlueEdit.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="StringTable_ToolTip.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HM_Machine.cpp">
