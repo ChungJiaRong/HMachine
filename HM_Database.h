@@ -17,6 +17,5 @@ public:
     CHM_Database(CString m_Stand);
     void Serialize(CArchive& ar);
     void WKArrayCopy(CStringArray* pCStrA,UINT Count);
-    void PSArrayCopy(CStringArray * pCStrA, UINT Count);
 };
 

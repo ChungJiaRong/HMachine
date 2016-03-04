@@ -33,10 +33,6 @@ void CHM_Database::WKArrayCopy(CStringArray* pCStrA, UINT Count)
     pCStrA->InsertAt(Count * 3 + 1, m_Action);
     pCStrA->InsertAt(Count * 3 + 2, m_MoveType);
 }
-void CHM_Database::PSArrayCopy(CStringArray* pCStrA, UINT Count)
-{
-    pCStrA->SetAt(Count, m_Stand);
-}
 
 
 

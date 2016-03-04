@@ -31,7 +31,7 @@ public:
 	CListCtrl m_ListCtrlPos, m_ListCtrlWork;
 	CStringArray m_WorkData,m_PosData,m_OtherData;
     CMoveButton m_Yup, m_Ydown, m_Xup, m_Xdown, m_Zup, m_Zdown;
-	int m_ListWKCount,m_ListPSCount,m_ListOTCount;
+	int m_ListWKCount,m_ListPSCount;
     CToolTipCtrl m_tooltip;
 //¤èªk
 public:
