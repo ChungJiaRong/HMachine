@@ -19,6 +19,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CSkinFrameWnd)
 	ON_WM_SHOWWINDOW()
 	ON_WM_TIMER()
 	ON_WM_PAINT()
+    ON_NOTIFY_EX(TTN_NEEDTEXT, 0, TBToolTips)
 END_MESSAGE_MAP()
 
 //狀態列指示器
@@ -183,4 +184,32 @@ void CMainFrame::CreateStatusBar()
 	}
 	//m_SBImageList.Detach();//釋放img對象
 	//m_StatusBar.GetStatusBarCtrl().SetIcon(0, m_SBImageList.ExtractIcon(0));//設置圖標在狀態欄上  
+}
+/*ToolBar提示*/
+BOOL CMainFrame::TBToolTips(UINT id, NMHDR * pNMHDR, LRESULT * pResult)
+{
+    TOOLTIPTEXT *pTTT = (TOOLTIPTEXT *)pNMHDR;
+    UINT nID = pNMHDR->idFrom; //獲取工具欄ID
+    UINT nIndex = m_ToolBar.CommandToIndex(nID); //獲取工具欄ID的索引號
+    CString str;
+    switch (nIndex)
+    {
+    case 0:
+        str = TT_BTNACCOUNT;
+        break;
+    case 1:
+        str = TT_BTNINPROCESS;
+        break;
+    case 2:
+        str = TT_BTNOBJMENAGEMENT;
+        break;
+    case 3:
+        str = TT_BTNHISTORY;
+        break;
+    default:
+        break;
+    }
+    pTTT->lpszText = str.AllocSysString();
+    pTTT->hinst = AfxGetResourceHandle();
+    return 0;
 }

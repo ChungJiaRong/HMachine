@@ -81,6 +81,9 @@
     <ClInclude Include="StringTable_ToolTip.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="ComRound.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HM_Machine.cpp">
@@ -135,6 +138,9 @@
       <Filter>原始程式檔</Filter>
     </ClCompile>
     <ClCompile Include="GlueEdit.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="ComRound.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
   </ItemGroup>

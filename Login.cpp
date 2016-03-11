@@ -54,7 +54,6 @@ void CLogin::OnOK()
 		m_UserData.SetSize(UserCount * 3);
 		for (int i = 0; i < UserCount * 3; i++) {
 			ar >> m_UserData[i];
-			//m_UserData.SetAt(i,StrBuff);
 		}
 		File.Close();
 	}
@@ -72,7 +71,6 @@ void CLogin::OnOK()
 		SetDlgItemText(IDC_EDITPASSWORD,_T(""));
 		GetDlgItem(IDC_EDITACCOUNT)->SetFocus();//焦點回到輸入帳號
 		ShowWindow(SW_SHOW);
-		//CDialogEx::OnOK();
 	}
 	else
 	{
@@ -91,6 +89,7 @@ void CLogin::OnOK()
 			MessageBox(_T("你的帳密有誤!!"));
 			SetDlgItemText(IDC_EDITACCOUNT, _T(""));
 			SetDlgItemText(IDC_EDITPASSWORD, _T(""));
+            GetDlgItem(IDC_EDITACCOUNT)->SetFocus();//焦點回到輸入帳號
 		}
 	}
 }

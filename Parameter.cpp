@@ -94,7 +94,7 @@ BOOL CParameter::OnInitDialog()
     m_tooltip.AddTool(GetDlgItem(IDC_BTNPARINIT), TT_BTNPARINIT);
     m_tooltip.AddTool(GetDlgItem(IDC_CHKPARHLIMIT), TT_CHKPARHLIMIT);
     m_tooltip.AddTool(GetDlgItem(IDC_CHKPARSLIMIT), TT_CHKPARSLIMIT);
-    m_tooltip.SetDelayTime(TTDT_INITIAL, 200);
+    m_tooltip.SetDelayTime(TTDT_INITIAL, 1000);
     m_tooltip.SetDelayTime(TTDT_AUTOPOP, 10000);
     /*載入參數資料*/
     CFileStatus FileStatus;//檔案屬性
@@ -261,6 +261,7 @@ void CParameter::OnBnClickedBtnpareditpar()
 	GetDlgItemText(IDC_BTNPAREDITPAR, StrBuff);
 	if (StrBuff == _T("編輯參數"))
 	{
+        GetDlgItem(IDC_EDITPARORIGINSPEED)->SetFocus();
 		SetDlgItemText(IDC_BTNPAREDITPAR, _T("取消編輯"));
 		for (int i = IDC_EDITPARORIGINSPEED; i <= IDC_EDITPARWENDSPEED; i++)
 		{
@@ -478,11 +479,17 @@ BOOL CParameter::PreTranslateMessage(MSG* pMsg)
     /*工具提示*/
     if (m_tooltip.m_hWnd != NULL)
     {
-        if (pMsg->message == WM_LBUTTONDOWN ||
-            pMsg->message == WM_LBUTTONUP ||
-            pMsg->message == WM_MOUSEMOVE)
+        m_tooltip.RelayEvent(pMsg);
+    }
+    if (pMsg->message == WM_KEYDOWN && pMsg->wParam == VK_TAB)
+    {
+        CWnd *mwnd = GetNextDlgTabItem(GetFocus());
+        if (mwnd)
         {
-            m_tooltip.RelayEvent(pMsg);
+            mwnd->SetFocus();
+            ((CEdit*)GetDlgItem(mwnd->GetDlgCtrlID()))->SetSel(20, 0);
+            return TRUE;
+
         }
     }
     return CPropertyPage::PreTranslateMessage(pMsg);

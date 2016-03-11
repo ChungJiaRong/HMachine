@@ -92,7 +92,7 @@ BOOL CIOState::OnInitDialog()
     m_tooltip.AddTool(GetDlgItem(IDC_BTNIOOPENREFRESH), TT_BTNIOOPENREFRESH);
     m_tooltip.AddTool(GetDlgItem(IDC_BTNIOCOMPILER), TT_BTNIOCOMPILER);
     m_tooltip.AddTool(GetDlgItem(IDC_BTNSETFINISH), TT_BTNSETFINISH);
-    m_tooltip.SetDelayTime(TTDT_INITIAL, 200);
+    m_tooltip.SetDelayTime(TTDT_INITIAL, 1000);
     m_tooltip.SetDelayTime(TTDT_AUTOPOP, 10000);
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX 屬性頁應傳回 FALSE
@@ -289,6 +289,7 @@ void CIOState::OnBnClickedBtniocompiler()
 	GetDlgItemText(IDC_BTNIOCOMPILER, StrBuff);
 	if (StrBuff == _T("編輯資料"))
 	{
+        GetDlgItem(IDC_EDITIOINAME)->SetFocus();
 		SetDlgItemText(IDC_BTNIOCOMPILER, _T("取消編輯"));
 		for (int i = IDC_EDITIOINAME; i <= IDC_EDITIOINAME + (m_ConCtrlCount -1) ; i++)
 			GetDlgItem(i)->EnableWindow(TRUE);
@@ -468,12 +469,20 @@ BOOL CIOState::PreTranslateMessage(MSG* pMsg)
     /*工具提示*/
     if (m_tooltip.m_hWnd != NULL)
     {
-        if (pMsg->message == WM_LBUTTONDOWN ||
-            pMsg->message == WM_LBUTTONUP ||
-            pMsg->message == WM_MOUSEMOVE)
+        m_tooltip.RelayEvent(pMsg);    
+    }
+    if (pMsg->message == WM_KEYDOWN && pMsg->wParam == VK_TAB)
+
+    {
+        CWnd *mwnd = GetNextDlgTabItem(GetFocus());
+        if (mwnd)
         {
-            m_tooltip.RelayEvent(pMsg);
+            mwnd->SetFocus();
+            ((CEdit*)GetDlgItem(mwnd->GetDlgCtrlID()))->SetSel(20, 0);
+            return TRUE;
+
         }
+
     }
     return CPropertyPage::PreTranslateMessage(pMsg);
 }

@@ -100,7 +100,8 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>mcc.lib</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -154,7 +155,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>VI_Dll.lib;mcc.lib</AdditionalDependencies>
+      <AdditionalDependencies>mcDxf.lib;</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -200,6 +201,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BtnST.h" />
+    <ClInclude Include="ComRound.h" />
     <ClInclude Include="GlueEdit.h" />
     <ClInclude Include="History.h" />
     <ClInclude Include="IOState.h" />
@@ -223,6 +225,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BtnST.cpp" />
+    <ClCompile Include="ComRound.cpp" />
     <ClCompile Include="GlueEdit.cpp" />
     <ClCompile Include="History.cpp" />
     <ClCompile Include="IOState.cpp" />
