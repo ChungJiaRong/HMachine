@@ -6,7 +6,7 @@
 struct WorkPoint {
     HWND hwnd;
     int WorkCount;
-    CStringArray* Work;
+    std::vector<CString> *Work;
     CString StandPos1, StandPos2;
     CString PickUp , GlueTime;   
 };
@@ -39,7 +39,7 @@ protected:
 public:
 	CRect  m_InitRect;
     CListCtrl m_ListCtrlWork;
-    CStringArray m_MainWorkData;
+    std::vector<CString> m_MainWorkData;
     int m_MainWorkCount;
 	CString m_MainPosData1,m_MainPosData2, m_MainPickUp , m_MainGlueTime;
     CToolTipCtrl m_tooltip;

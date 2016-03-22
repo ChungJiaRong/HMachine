@@ -114,6 +114,7 @@ void CMainFrame::OnShowWindow(BOOL bShow, UINT nStatus)
 	//SetWindowPos(this, 8, 8, 1024, 768, SWP_NOMOVE);//改變窗口大小
 	MoveWindow(0, 0, 1024, 768);//防止工具列跑掉
 	CenterWindow();//顯示在螢幕中間
+    SetWindowLong(AfxGetMainWnd()->m_hWnd, GWL_EXSTYLE, GetWindowLong(AfxGetMainWnd()->m_hWnd, GWL_EXSTYLE) | WS_EX_LAYERED);//設置主視窗為可以透明化
 }
 /*狀態列時鐘*/
 void CMainFrame::OnTimer(UINT_PTR nIDEvent)

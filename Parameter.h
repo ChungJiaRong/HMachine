@@ -13,6 +13,12 @@ struct Limit {
     CPoint Nedg;
     LONG PosZ, NedgZ;
 };
+struct Glue {
+    LONG BeginWaitTime;
+    LONG EndWaitTime;
+    //LONG ZEndType;
+    LONG StopGlueDistance;
+};
 // CParameter ¹ï¸Ü¤è¶ô
 
 class CParameter : public CPropertyPage
@@ -40,6 +46,7 @@ public:
     int ARSpeedType;
     Limit Limit;
     Speed HSpeed, MSpeed, LSpeed , WSpeed;
+    Glue Glue;
     CListCtrl m_ListCtrlParame;
     int m_ListCount;
     CToolTipCtrl m_tooltip;

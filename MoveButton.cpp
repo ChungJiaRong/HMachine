@@ -48,46 +48,27 @@ void CMoveButton::OnLButtonUp(UINT nFlags, CPoint point)
 /*計數執行次數*/
 void CMoveButton::OnTimer(UINT_PTR nIDEvent)
 {
+#ifdef MOVE
     CMainFrame *pMain = (CMainFrame*)AfxGetApp()->m_pMainWnd;//獲取已建立的View指針
     CHM_MachineView *pView = (CHM_MachineView *)pMain->GetActiveView();
     CParameter* pParameter = (CParameter*)pView->m_DlgArray.GetAt(2);
     CCompiler* pCompiler = (CCompiler*)pView->m_DlgArray.GetAt(1);
-#ifdef MOVE
-    if (MoveX || MoveY)
+    switch (pCompiler->GetCheckedRadioButton(IDC_RADCOMHS, IDC_RADCOMLS))
     {
-        switch (pCompiler->GetCheckedRadioButton(IDC_RADCOMHS, IDC_RADCOMLS))
-        {
-        case IDC_RADCOMHS:
-            MO_Do2DLineMove(MoveX, MoveY, pParameter->HSpeed.End, pParameter->HSpeed.Add, pParameter->HSpeed.Init);
-            break;
-        case IDC_RADCOMMS:
-            MO_Do2DLineMove(MoveX, MoveY, pParameter->MSpeed.End, pParameter->MSpeed.Add, pParameter->MSpeed.Init);
-            break;
-        case IDC_RADCOMLS:
-            MO_Do2DLineMove(MoveX, MoveY, pParameter->LSpeed.End, pParameter->LSpeed.Add, pParameter->LSpeed.Init);
-            break;
-        default:
-            break;
-        }
+    case IDC_RADCOMHS:
+        MO_Do3DLineMove(MoveX, MoveY, MoveZ, pParameter->HSpeed.End, pParameter->HSpeed.Add, pParameter->HSpeed.Init);
+        break;
+    case IDC_RADCOMMS:
+        MO_Do3DLineMove(MoveX, MoveY, MoveZ, pParameter->MSpeed.End, pParameter->MSpeed.Add, pParameter->MSpeed.Init);
+        break;
+    case IDC_RADCOMLS:
+        MO_Do3DLineMove(MoveX, MoveY, MoveZ, pParameter->LSpeed.End, pParameter->LSpeed.Add, pParameter->LSpeed.Init);
+        break;
+    default:
+        MessageBox(_T("程式出現錯誤!"));
+        break;
     }
-    if (MoveZ)
-    {
-        switch (pCompiler->GetCheckedRadioButton(IDC_RADCOMHS, IDC_RADCOMLS))
-        {
-        case IDC_RADCOMHS:
-            MO_DoZLineMove(MoveZ, pParameter->HSpeed.End, pParameter->HSpeed.Add, pParameter->HSpeed.Init);
-            break;
-        case IDC_RADCOMMS:
-            MO_DoZLineMove(MoveZ, pParameter->MSpeed.End, pParameter->MSpeed.Add, pParameter->MSpeed.Init);
-            break;
-        case IDC_RADCOMLS:
-            MO_DoZLineMove(MoveZ, pParameter->LSpeed.End, pParameter->LSpeed.Add, pParameter->LSpeed.Init);
-            break;
-        default:
-            break;
-        }
-    }
-#endif // MOVE 
+#endif // MOVE
     WriteHistory(((CHM_MachineApp*)AfxGetApp())->HistoryFile, ((CHM_MachineApp*)AfxGetApp())->UserID, _T("滑鼠"), _T("按下"));
     CButton::OnTimer(nIDEvent);
 }

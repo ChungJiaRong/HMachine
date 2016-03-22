@@ -45,6 +45,9 @@ void CParameter::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDITPARNEDGLIMITX, Limit.Nedg.x);
 	DDX_Text(pDX, IDC_EDITPARNEDGLIMITY, Limit.Nedg.y);
 	DDX_Text(pDX, IDC_EDITPARNEDGLIMITZ, Limit.NedgZ);
+    DDX_Text(pDX, IDC_EDITPARGLUEBEGIN, Glue.BeginWaitTime);
+    DDX_Text(pDX, IDC_EDITPARGLUEEND, Glue.EndWaitTime);
+    DDX_Text(pDX, IDC_EDITPARGLUEDISTANCE, Glue.StopGlueDistance);
 	DDX_CBIndex(pDX, IDC_CMBPARTYPE, ARSpeedType);
 	DDX_Control(pDX, IDC_LISTPAR, m_ListCtrlParame);
 }
@@ -99,7 +102,7 @@ BOOL CParameter::OnInitDialog()
     /*載入參數資料*/
     CFileStatus FileStatus;//檔案屬性
     CFile File;
-    if (!File.GetStatus(_T("Parameter.txt"), FileStatus)) {
+    if (!File.GetStatus(GetModulePath()+ _T("Parameter.txt"), FileStatus)) {
         InitParameter();
         WriteParamData();
     }
@@ -116,7 +119,7 @@ BOOL CParameter::OnInitDialog()
 void CParameter::OnPaint()
 {
 	CPaintDC dc(this);
-	for (int i = IDC_EDITPARORIGINSPEED; i <= IDC_EDITPARNEDGLIMITZ; i++)
+	for (int i = IDC_EDITPARORIGINSPEED; i <= IDC_EDITPARGLUEZWIDTH; i++)
 	{
 		EditTextVertical((CEdit*)GetDlgItem(i));
 	}
@@ -124,8 +127,6 @@ void CParameter::OnPaint()
 void CParameter::OnSize(UINT nType, int cx, int cy)
 {
 	CPropertyPage::OnSize(nType, cx, cy);
-
-	// TODO: 在此加入您的訊息處理常式程式碼
 	CWnd *pWnd;
 	for (int i = IDC_LISTPAR; i <= IDC_BTNPARSETFINISH; i++)
 	{
@@ -171,19 +172,24 @@ void CParameter::InitParameter() {
 	RSpeed = 0;
 	R2Speed = 0;
 	A2Speed = 0;
+    Glue.BeginWaitTime = 1;
+    Glue.EndWaitTime = 1;
+    Glue.StopGlueDistance = 0;
+    //Glue.ZEndType = 0;
 }
 /*寫入檔案*/
 void CParameter::WriteParamData() {
 	CFile File;
 	if (File.Open(GetModulePath()+_T("Parameter.txt"), CFile::modeCreate | CFile::modeWrite)) {
 		CArchive ar(&File, CArchive::store);
-		ar << OSpeed << OLSpeed
-			<< HSpeed.Init << HSpeed.Add << HSpeed.End
-			<< MSpeed.Init << MSpeed.Add << MSpeed.End
-			<< LSpeed.Init << LSpeed.Add << LSpeed.End
-			<< WSpeed.Init << WSpeed.Add << WSpeed.End
-			<< ARSpeedType << RSpeed << R2Speed << A2Speed
-			<< Limit.Hard << Limit.Soft << Limit.Pos << Limit.Nedg << Limit.PosZ << Limit.NedgZ;
+        ar << OSpeed << OLSpeed
+            << HSpeed.Init << HSpeed.Add << HSpeed.End
+            << MSpeed.Init << MSpeed.Add << MSpeed.End
+            << LSpeed.Init << LSpeed.Add << LSpeed.End
+            << WSpeed.Init << WSpeed.Add << WSpeed.End
+            << ARSpeedType << RSpeed << R2Speed << A2Speed
+            << Limit.Hard << Limit.Soft << Limit.Pos << Limit.Nedg << Limit.PosZ << Limit.NedgZ
+            << Glue.BeginWaitTime << Glue.EndWaitTime << Glue.StopGlueDistance;// << Glue.ZEndType;
 	}
 	File.Close(); 
 }
@@ -192,13 +198,14 @@ void CParameter::ReadParamData() {
 	CFile File;
 	if (File.Open(GetModulePath()+_T("Parameter.txt"), CFile::modeRead)) {//打開檔案
 		CArchive ar(&File, CArchive::load);//讀取入檔案
-		ar >> OSpeed >> OLSpeed
-			>> HSpeed.Init >> HSpeed.Add >> HSpeed.End
-			>> MSpeed.Init >> MSpeed.Add >> MSpeed.End
-			>> LSpeed.Init >> LSpeed.Add >> LSpeed.End
-			>> WSpeed.Init >> WSpeed.Add >> WSpeed.End
-			>> ARSpeedType >> RSpeed >> R2Speed >> A2Speed
-			>> Limit.Hard >> Limit.Soft >> Limit.Pos >> Limit.Nedg >> Limit.PosZ >> Limit.NedgZ;
+        ar >> OSpeed >> OLSpeed
+            >> HSpeed.Init >> HSpeed.Add >> HSpeed.End
+            >> MSpeed.Init >> MSpeed.Add >> MSpeed.End
+            >> LSpeed.Init >> LSpeed.Add >> LSpeed.End
+            >> WSpeed.Init >> WSpeed.Add >> WSpeed.End
+            >> ARSpeedType >> RSpeed >> R2Speed >> A2Speed
+            >> Limit.Hard >> Limit.Soft >> Limit.Pos >> Limit.Nedg >> Limit.PosZ >> Limit.NedgZ
+            >> Glue.BeginWaitTime >> Glue.EndWaitTime >> Glue.StopGlueDistance;// >> Glue.ZEndType;
 		File.Close();
 	}
 }
@@ -243,6 +250,10 @@ void CParameter::OnBnClickedBtnparsetfinish()
 		{
 			GetDlgItem(i)->EnableWindow(FALSE);
 		}
+        for (int i = IDC_EDITPARGLUEBEGIN; i <= IDC_EDITPARGLUEDISTANCE; i++)
+        {
+            GetDlgItem(i)->EnableWindow(FALSE);
+        }
 		GetDlgItem(IDC_CMBPARTYPE)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CHKPARHLIMIT)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CHKPARSLIMIT)->EnableWindow(FALSE);
@@ -256,7 +267,6 @@ void CParameter::OnBnClickedBtnparsetfinish()
 /*編輯參數*/
 void CParameter::OnBnClickedBtnpareditpar()
 {
-	// TODO: 在此加入控制項告知處理常式程式碼
 	CString StrBuff;
 	GetDlgItemText(IDC_BTNPAREDITPAR, StrBuff);
 	if (StrBuff == _T("編輯參數"))
@@ -267,6 +277,10 @@ void CParameter::OnBnClickedBtnpareditpar()
 		{
 			GetDlgItem(i)->EnableWindow(TRUE);
 		}
+        for (int i = IDC_EDITPARGLUEBEGIN; i <= IDC_EDITPARGLUEDISTANCE; i++)
+        {
+            GetDlgItem(i)->EnableWindow(TRUE);
+        }
 		GetDlgItem(IDC_CMBPARTYPE)->EnableWindow(TRUE);
 		GetDlgItem(IDC_CHKPARHLIMIT)->EnableWindow(TRUE);
 		GetDlgItem(IDC_CHKPARSLIMIT)->EnableWindow(TRUE);
@@ -280,6 +294,10 @@ void CParameter::OnBnClickedBtnpareditpar()
 		{
 			GetDlgItem(i)->EnableWindow(FALSE);
 		}
+        for (int i = IDC_EDITPARGLUEBEGIN; i <= IDC_EDITPARGLUEDISTANCE; i++)
+        {
+            GetDlgItem(i)->EnableWindow(FALSE);
+        }
 		GetDlgItem(IDC_CMBPARTYPE)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CHKPARHLIMIT)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CHKPARSLIMIT)->EnableWindow(FALSE);
@@ -290,7 +308,6 @@ void CParameter::OnBnClickedBtnpareditpar()
 /*回歸初始設定*/
 void CParameter::OnBnClickedBtnparinit()
 {
-	// TODO: 在此加入控制項告知處理常式程式碼
 	if (MessageBox(_T("你確定要回歸初始化?"), _T("題示"), MB_ICONINFORMATION | MB_OKCANCEL) == IDOK)
 	{
 		InitParameter();
@@ -302,7 +319,6 @@ void CParameter::OnBnClickedBtnparinit()
 /*選擇加減速型態*/
 void CParameter::OnSelendokCmbpartype()
 {
-	// TODO: 在此加入控制項告知處理常式程式碼
 	UpdateData(TRUE);
 	switch(ARSpeedType)
 	{
@@ -333,7 +349,6 @@ void CParameter::OnSelendokCmbpartype()
 /*硬體極限開關*/
 void CParameter::OnStnClickedChkparhlimit()
 {
-	// TODO: 在此加入控制項告知處理常式程式碼
 	if (Limit.Hard)
 	{
 		if (MessageBox(_T("你確定要關掉硬體極限?\n如造成嚴重損壞請自行負責!"), _T("題示"), MB_ICONINFORMATION | MB_OKCANCEL) == IDOK)
@@ -350,7 +365,6 @@ void CParameter::OnStnClickedChkparhlimit()
 /*軟體極限開關*/
 void CParameter::OnStnClickedChkparslimit()
 {
-	// TODO: 在此加入控制項告知處理常式程式碼
 	if (Limit.Soft)
 	{
 		Limit.Soft = FALSE;
@@ -471,9 +485,7 @@ void CParameter::OnTimer(UINT_PTR nIDEvent)
 	}
 	CPropertyPage::OnTimer(nIDEvent);
 }
-
-
-
+/*快捷鍵*/
 BOOL CParameter::PreTranslateMessage(MSG* pMsg)
 {
     /*工具提示*/

@@ -141,14 +141,14 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>Use</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -202,6 +202,8 @@
   <ItemGroup>
     <ClInclude Include="BtnST.h" />
     <ClInclude Include="ComRound.h" />
+    <ClInclude Include="DxfFileOpen.h" />
+    <ClInclude Include="Dxfset.h" />
     <ClInclude Include="GlueEdit.h" />
     <ClInclude Include="History.h" />
     <ClInclude Include="IOState.h" />
@@ -215,6 +217,7 @@
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Administration.h" />
     <ClInclude Include="MoveButton.h" />
+    <ClInclude Include="MoveEdit.h" />
     <ClInclude Include="Parameter.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SkinFrameWnd.h" />
@@ -222,10 +225,13 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StringTable_ToolTip.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Wait.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BtnST.cpp" />
     <ClCompile Include="ComRound.cpp" />
+    <ClCompile Include="DxfFileOpen.cpp" />
+    <ClCompile Include="Dxfset.cpp" />
     <ClCompile Include="GlueEdit.cpp" />
     <ClCompile Include="History.cpp" />
     <ClCompile Include="IOState.cpp" />
@@ -239,6 +245,7 @@
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="Administration.cpp" />
     <ClCompile Include="MoveButton.cpp" />
+    <ClCompile Include="MoveEdit.cpp" />
     <ClCompile Include="Parameter.cpp" />
     <ClCompile Include="SkinFrameWnd.cpp" />
     <ClCompile Include="SkinManager.cpp" />
@@ -248,6 +255,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Wait.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="HM_Machine.reg" />

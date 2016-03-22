@@ -33,6 +33,7 @@ END_MESSAGE_MAP()
 BOOL CGlueEdit::OnInitDialog()
 {
     CDialogEx::OnInitDialog();
+    AfxGetMainWnd()->SetLayeredWindowAttributes(0, (255 * 70) / 100, LWA_ALPHA);//主視窗透明化
     CMainFrame *pMain = (CMainFrame*)AfxGetApp()->m_pMainWnd;//獲取已建立的View指針
     CHM_MachineView *pView = (CHM_MachineView *)pMain->GetActiveView();
     SetDlgItemText(IDC_EDITGLTIME,((CHM_Database*)pView->GetDocument()->m_OtherArray.GetAt(1))->m_Stand);
@@ -46,6 +47,7 @@ void CGlueEdit::OnBnClickedOk()
     GetDlgItemText(IDC_EDITGLTIME, StrBuff);
     CHM_Database *pHM_Database = new CHM_Database(StrBuff);
     pView->GetDocument()->m_OtherArray.SetAt(1, pHM_Database);
+    AfxGetMainWnd()->SetLayeredWindowAttributes(0, (255 * 100) / 100, LWA_ALPHA);//主視窗恢復透明化
     CDialogEx::OnOK();
 }
 

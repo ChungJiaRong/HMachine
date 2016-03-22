@@ -36,7 +36,7 @@ END_MESSAGE_MAP()
 BOOL CComRound::OnInitDialog()
 {
     CDialogEx::OnInitDialog();
-    // TODO:  在此加入額外的初始化
+    AfxGetMainWnd()->SetLayeredWindowAttributes(0, (255 * 70) / 100, LWA_ALPHA);//主視窗透明化
     CMainFrame *pMain = (CMainFrame*)AfxGetApp()->m_pMainWnd;//獲取已建立的View指針
     CHM_MachineView *pView = (CHM_MachineView *)pMain->GetActiveView();
     CCompiler* pCompiler = (CCompiler*)pView->m_DlgArray.GetAt(1);
@@ -75,7 +75,6 @@ BOOL CComRound::OnInitDialog()
     return TRUE;  // return TRUE unless you set the focus to a control
                   // EXCEPTION: OCX 屬性頁應傳回 FALSE
 }
-
 void CComRound::OnBnClickedOk()
 {
     CMainFrame *pMain = (CMainFrame*)AfxGetApp()->m_pMainWnd;//獲取已建立的View指針
@@ -91,6 +90,7 @@ void CComRound::OnBnClickedOk()
     else if (((CButton*)pCompiler->GetDlgItem(IDC_RADCOMROUND))->GetCheck() || ComboCheck == 2)
     {
         pCompiler->m_RADIUS = GetDlgItemInt(IDC_EDITCOMROUNDR);
+        AfxGetMainWnd()->SetLayeredWindowAttributes(0, (255 * 100) / 100, LWA_ALPHA);//主視窗恢復透明化
         CDialogEx::OnOK();
     }
     else
@@ -120,7 +120,12 @@ void CComRound::OnBnClickedOk()
             MessageBox(_T("請選擇順時針或逆時針"));
             return ;
         }
+        AfxGetMainWnd()->SetLayeredWindowAttributes(0, (255 * 100) / 100, LWA_ALPHA);//主視窗恢復透明化
         CDialogEx::OnOK();
     }
 }
-
+void CComRound::OnCancel()
+{
+    AfxGetMainWnd()->SetLayeredWindowAttributes(0, (255 * 100) / 100, LWA_ALPHA);//主視窗恢復透明化
+    CDialogEx::OnCancel();
+}

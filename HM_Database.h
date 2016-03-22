@@ -8,14 +8,16 @@ public:
     CString m_ptEnd;
     CString m_Action;
     CString m_MoveType;
+    CString m_ThreePoint;
     CString m_Stand;
 //¤èªk
 public:
     CHM_Database();
     ~CHM_Database();
-    CHM_Database(CString m_ptOrigin , CString m_ptEnd, CString m_Action , CString m_MoveType);
+    CHM_Database(CString m_ptOrigin , CString m_ptEnd, CString m_Action , CString m_MoveType, CString m_ThreePoint);
     CHM_Database(CString m_Stand);
     void Serialize(CArchive& ar);
-    void WKArrayCopy(CStringArray* pCStrA,UINT Count);
+    void WKArrayCopy(std::vector<CString>
+        *pCStrA,UINT Count);
 };
 
