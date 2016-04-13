@@ -96,6 +96,9 @@
     <ClInclude Include="MoveEdit.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
+    <ClInclude Include="Print.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HM_Machine.cpp">
@@ -158,13 +161,13 @@
     <ClCompile Include="Wait.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
-    <ClCompile Include="DxfFileOpen.cpp">
+    <ClCompile Include="MoveEdit.cpp">
+      <Filter>原始程式檔</Filter>
+    </ClCompile>
+    <ClCompile Include="Print.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
     <ClCompile Include="Dxfset.cpp">
-      <Filter>原始程式檔</Filter>
-    </ClCompile>
-    <ClCompile Include="MoveEdit.cpp">
       <Filter>原始程式檔</Filter>
     </ClCompile>
   </ItemGroup>

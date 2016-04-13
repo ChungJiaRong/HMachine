@@ -50,6 +50,7 @@ void CGlueEdit::OnBnClickedOk()
     AfxGetMainWnd()->SetLayeredWindowAttributes(0, (255 * 100) / 100, LWA_ALPHA);//主視窗恢復透明化
     CDialogEx::OnOK();
 }
-
-
-
+void CGlueEdit::OnCancel()
+{
+    //CDialogEx::OnCancel();
+}

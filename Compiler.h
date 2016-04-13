@@ -7,6 +7,7 @@
 #include "GlueEdit.h"
 #include "Dxfset.h"
 #include "MoveEdit.h"
+#include "Print.h"
 //CCompiler對話方塊
 
 class CCompiler : public CPropertyPage
@@ -41,6 +42,12 @@ public:
 	CComboBox m_Combobox;
 	CStatic m_Static;
 	std::vector<CString> m_WorkData;
+
+
+    /*校正用*/
+    void *ConversionModel1;
+    LONG  ConversionModel1X, ConversionModel1Y;
+    double ConversionX, ConversionY;
 
 	/*兩點加半徑*/
 	int m_RADIUS;
@@ -107,4 +114,5 @@ public:
 	void MoveXYZ(int MoveX, int MoveY, int MoveZ);
 	void CreateStatic(CStatic * m_Static);
 	void CreateCombo(NM_LISTVIEW * pEditCtrl, CComboBox * m_Combobox1);
+    afx_msg void OnBnClickedBtncommoverxyz();
 };

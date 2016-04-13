@@ -48,6 +48,12 @@ void CParameter::DoDataExchange(CDataExchange* pDX)
     DDX_Text(pDX, IDC_EDITPARGLUEBEGIN, Glue.BeginWaitTime);
     DDX_Text(pDX, IDC_EDITPARGLUEEND, Glue.EndWaitTime);
     DDX_Text(pDX, IDC_EDITPARGLUEDISTANCE, Glue.StopGlueDistance);
+    DDX_Text(pDX, IDC_EDITPARZUPSPEED, ZEndWay.FirstSpeed);
+    DDX_Text(pDX, IDC_EDITPARZUPDISTANCE, ZEndWay.FirstUpDistance);
+    DDX_Text(pDX, IDC_EDITPARGLUEZSPEED, ZEndWay.Speed);
+    DDX_Text(pDX, IDC_EDITPARGLUEZHIGHT, ZEndWay.Hight);
+    DDX_Text(pDX, IDC_EDITPARGLUEZWIDTH, ZEndWay.Width);
+    DDX_CBIndex(pDX, IDC_CMBPARGLUEZTYPE, ZEndWay.Type);
 	DDX_CBIndex(pDX, IDC_CMBPARTYPE, ARSpeedType);
 	DDX_Control(pDX, IDC_LISTPAR, m_ListCtrlParame);
 }
@@ -61,6 +67,7 @@ BEGIN_MESSAGE_MAP(CParameter, CPropertyPage)
 	ON_STN_CLICKED(IDC_CHKPARHLIMIT, &CParameter::OnStnClickedChkparhlimit)
 	ON_STN_CLICKED(IDC_CHKPARSLIMIT, &CParameter::OnStnClickedChkparslimit)
 	ON_WM_TIMER()
+    ON_CBN_SELENDOK(IDC_CMBPARGLUEZTYPE, &CParameter::OnCbnSelendokCmbparglueztype)
 END_MESSAGE_MAP()
 // CParameter 訊息處理常式
 BOOL CParameter::OnInitDialog()
@@ -71,11 +78,17 @@ BOOL CParameter::OnInitDialog()
 	m_OnOffImageList.Create(32, 32, ILC_COLOR32 | ILC_MASK, 1, 1);//創建圖標列表
 	m_OnOffImageList.Add(AfxGetApp()->LoadIcon(IDI_OFF));
 	m_OnOffImageList.Add(AfxGetApp()->LoadIcon(IDI_ON));
-	/*設定Combox*/
+	/*設定Combox 速度類型*/
 	((CComboBox*)GetDlgItem(IDC_CMBPARTYPE))->InsertString(0,_T("對稱梯形"));
 	((CComboBox*)GetDlgItem(IDC_CMBPARTYPE))->InsertString(1,_T("對稱S形"));
 	((CComboBox*)GetDlgItem(IDC_CMBPARTYPE))->InsertString(2,_T("不對稱梯形"));
 	((CComboBox*)GetDlgItem(IDC_CMBPARTYPE))->InsertString(3,_T("不對稱S形"));
+    /*設定Combox Z上升類型*/
+    ((CComboBox*)GetDlgItem(IDC_CMBPARGLUEZTYPE))->InsertString(0, _T("正常"));
+    ((CComboBox*)GetDlgItem(IDC_CMBPARGLUEZTYPE))->InsertString(1, _T("向後"));
+    ((CComboBox*)GetDlgItem(IDC_CMBPARGLUEZTYPE))->InsertString(2, _T("直角向後"));
+    ((CComboBox*)GetDlgItem(IDC_CMBPARGLUEZTYPE))->InsertString(3, _T("向前"));
+    ((CComboBox*)GetDlgItem(IDC_CMBPARGLUEZTYPE))->InsertString(4, _T("直角向前"));
 	/*初始列表*/
 	CHeaderCtrl* pHeaderCtrl = (CHeaderCtrl*)m_ListCtrlParame.GetHeaderCtrl();//固定標題列寬
 	pHeaderCtrl->EnableWindow(FALSE);
@@ -172,10 +185,15 @@ void CParameter::InitParameter() {
 	RSpeed = 0;
 	R2Speed = 0;
 	A2Speed = 0;
-    Glue.BeginWaitTime = 1;
-    Glue.EndWaitTime = 1;
+    Glue.BeginWaitTime = 0;
+    Glue.EndWaitTime = 0;
     Glue.StopGlueDistance = 0;
-    //Glue.ZEndType = 0;
+    ZEndWay.FirstSpeed = 0;
+    ZEndWay.FirstUpDistance = 0;
+    ZEndWay.Type = 0;
+    ZEndWay.Speed = 0;
+    ZEndWay.Hight = 0;
+    ZEndWay.Width = 0;
 }
 /*寫入檔案*/
 void CParameter::WriteParamData() {
@@ -189,7 +207,8 @@ void CParameter::WriteParamData() {
             << WSpeed.Init << WSpeed.Add << WSpeed.End
             << ARSpeedType << RSpeed << R2Speed << A2Speed
             << Limit.Hard << Limit.Soft << Limit.Pos << Limit.Nedg << Limit.PosZ << Limit.NedgZ
-            << Glue.BeginWaitTime << Glue.EndWaitTime << Glue.StopGlueDistance;// << Glue.ZEndType;
+            << Glue.BeginWaitTime << Glue.EndWaitTime << Glue.StopGlueDistance
+            << ZEndWay.FirstSpeed << ZEndWay.FirstUpDistance << ZEndWay.Type << ZEndWay.Speed << ZEndWay.Hight << ZEndWay.Width;
 	}
 	File.Close(); 
 }
@@ -205,7 +224,8 @@ void CParameter::ReadParamData() {
             >> WSpeed.Init >> WSpeed.Add >> WSpeed.End
             >> ARSpeedType >> RSpeed >> R2Speed >> A2Speed
             >> Limit.Hard >> Limit.Soft >> Limit.Pos >> Limit.Nedg >> Limit.PosZ >> Limit.NedgZ
-            >> Glue.BeginWaitTime >> Glue.EndWaitTime >> Glue.StopGlueDistance;// >> Glue.ZEndType;
+            >> Glue.BeginWaitTime >> Glue.EndWaitTime >> Glue.StopGlueDistance
+            >> ZEndWay.FirstSpeed >> ZEndWay.FirstUpDistance >> ZEndWay.Type >> ZEndWay.Speed >> ZEndWay.Hight >> ZEndWay.Width;
 		File.Close();
 	}
 }
@@ -240,21 +260,17 @@ void CParameter::EditTextVertical(CEdit *m_EditCtrl) {
 /*編輯完成*/
 void CParameter::OnBnClickedBtnparsetfinish()
 {
-	// TODO: 在此加入控制項告知處理常式程式碼  
 	CString StrBuff;
 	GetDlgItemText(IDC_BTNPAREDITPAR, StrBuff);
 	if (StrBuff == _T("取消編輯"))
 	{
 		SetDlgItemText(IDC_BTNPAREDITPAR, _T("編輯參數"));
-		for (int i = IDC_EDITPARORIGINSPEED; i <= IDC_EDITPARNEDGLIMITZ; i++)
+		for (int i = IDC_EDITPARORIGINSPEED; i <= IDC_EDITPARGLUEZWIDTH; i++)
 		{
 			GetDlgItem(i)->EnableWindow(FALSE);
 		}
-        for (int i = IDC_EDITPARGLUEBEGIN; i <= IDC_EDITPARGLUEDISTANCE; i++)
-        {
-            GetDlgItem(i)->EnableWindow(FALSE);
-        }
 		GetDlgItem(IDC_CMBPARTYPE)->EnableWindow(FALSE);
+        GetDlgItem(IDC_CMBPARGLUEZTYPE)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CHKPARHLIMIT)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CHKPARSLIMIT)->EnableWindow(FALSE);
 		UpdateData(TRUE);
@@ -277,11 +293,12 @@ void CParameter::OnBnClickedBtnpareditpar()
 		{
 			GetDlgItem(i)->EnableWindow(TRUE);
 		}
-        for (int i = IDC_EDITPARGLUEBEGIN; i <= IDC_EDITPARGLUEDISTANCE; i++)
+        for (int i = IDC_EDITPARGLUEBEGIN; i <= IDC_EDITPARGLUEZHIGHT; i++)
         {
             GetDlgItem(i)->EnableWindow(TRUE);
         }
 		GetDlgItem(IDC_CMBPARTYPE)->EnableWindow(TRUE);
+        GetDlgItem(IDC_CMBPARGLUEZTYPE)->EnableWindow(TRUE);
 		GetDlgItem(IDC_CHKPARHLIMIT)->EnableWindow(TRUE);
 		GetDlgItem(IDC_CHKPARSLIMIT)->EnableWindow(TRUE);
 		OnSelendokCmbpartype();
@@ -290,15 +307,12 @@ void CParameter::OnBnClickedBtnpareditpar()
 	else
 	{
 		SetDlgItemText(IDC_BTNPAREDITPAR, _T("編輯參數"));
-		for (int i = IDC_EDITPARORIGINSPEED; i <= IDC_EDITPARNEDGLIMITZ; i++)
+		for (int i = IDC_EDITPARORIGINSPEED; i <= IDC_EDITPARGLUEZWIDTH; i++)
 		{
 			GetDlgItem(i)->EnableWindow(FALSE);
 		}
-        for (int i = IDC_EDITPARGLUEBEGIN; i <= IDC_EDITPARGLUEDISTANCE; i++)
-        {
-            GetDlgItem(i)->EnableWindow(FALSE);
-        }
-		GetDlgItem(IDC_CMBPARTYPE)->EnableWindow(FALSE);
+        GetDlgItem(IDC_CMBPARTYPE)->EnableWindow(FALSE);
+		GetDlgItem(IDC_CMBPARGLUEZTYPE)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CHKPARHLIMIT)->EnableWindow(FALSE);
 		GetDlgItem(IDC_CHKPARSLIMIT)->EnableWindow(FALSE);
 		RefreshData();
@@ -345,6 +359,23 @@ void CParameter::OnSelendokCmbpartype()
 	default:
 		break;
 	}
+}
+/*選擇Z上升形態*/
+void CParameter::OnCbnSelendokCmbparglueztype()
+{
+    UpdateData(TRUE);
+    switch (ZEndWay.Type)
+    {
+    case 1:
+        GetDlgItem(IDC_EDITPARGLUEZWIDTH)->EnableWindow(TRUE);
+        break;
+    case 3:
+        GetDlgItem(IDC_EDITPARGLUEZWIDTH)->EnableWindow(TRUE);
+        break;
+    default:
+        GetDlgItem(IDC_EDITPARGLUEZWIDTH)->EnableWindow(FALSE);
+        break;
+    }
 }
 /*硬體極限開關*/
 void CParameter::OnStnClickedChkparhlimit()
@@ -414,7 +445,6 @@ void CParameter::SetListItemText(CListCtrl &m_ListCtrl,UINT Item,UINT Count,...)
 /*刷新速度*/
 void CParameter::OnTimer(UINT_PTR nIDEvent)
 {
-	// TODO: 在此加入您的訊息處理常式程式碼和 (或) 呼叫預設值
 	CString StrBuff;
 	bool HardLimit[3];
 	memset(HardLimit, FALSE, sizeof(HardLimit));
@@ -506,3 +536,6 @@ BOOL CParameter::PreTranslateMessage(MSG* pMsg)
     }
     return CPropertyPage::PreTranslateMessage(pMsg);
 }
+
+
+

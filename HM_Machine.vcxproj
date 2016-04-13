@@ -219,6 +219,7 @@
     <ClInclude Include="MoveButton.h" />
     <ClInclude Include="MoveEdit.h" />
     <ClInclude Include="Parameter.h" />
+    <ClInclude Include="Print.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="SkinFrameWnd.h" />
     <ClInclude Include="SkinManager.h" />
@@ -230,7 +231,6 @@
   <ItemGroup>
     <ClCompile Include="BtnST.cpp" />
     <ClCompile Include="ComRound.cpp" />
-    <ClCompile Include="DxfFileOpen.cpp" />
     <ClCompile Include="Dxfset.cpp" />
     <ClCompile Include="GlueEdit.cpp" />
     <ClCompile Include="History.cpp" />
@@ -247,6 +247,7 @@
     <ClCompile Include="MoveButton.cpp" />
     <ClCompile Include="MoveEdit.cpp" />
     <ClCompile Include="Parameter.cpp" />
+    <ClCompile Include="Print.cpp" />
     <ClCompile Include="SkinFrameWnd.cpp" />
     <ClCompile Include="SkinManager.cpp" />
     <ClCompile Include="stdafx.cpp">

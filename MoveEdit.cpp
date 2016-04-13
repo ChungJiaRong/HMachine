@@ -1,4 +1,4 @@
-// MoveEdit.cpp : ¹ê§@ÀÉ
+ï»¿// MoveEdit.cpp : å¯¦ä½œæª”
 //
 
 #include "stdafx.h"
@@ -18,8 +18,9 @@ CMoveEdit::~CMoveEdit()
 BEGIN_MESSAGE_MAP(CMoveEdit, CEdit)
     ON_WM_RBUTTONDOWN()
     ON_WM_CONTEXTMENU()
+    ON_WM_CHAR()
 END_MESSAGE_MAP()
-// CMoveEdit °T®§³B²z±`¦¡
+// CMoveEdit è¨Šæ¯è™•ç†å¸¸å¼
 void CMoveEdit::OnRButtonDown(UINT nFlags, CPoint point)
 {
 #ifdef MOVE
@@ -44,8 +45,43 @@ void CMoveEdit::OnRButtonDown(UINT nFlags, CPoint point)
 #endif // MOVE
     CEdit::OnRButtonDown(nFlags, point);
 }
-/*¥Î¨Ó¨ú®øµæ³æ*/
+/*ç”¨ä¾†å–æ¶ˆèœå–®*/
 void CMoveEdit::OnContextMenu(CWnd* /*pWnd*/, CPoint /*point*/)
 {
     
+}
+
+
+void CMoveEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+    if (nChar == '-') 
+    {
+        CString StrBuff;
+        GetWindowText(StrBuff);
+        if (StrBuff.IsEmpty())
+        {
+            CEdit::OnChar(nChar, nRepCnt, nFlags);
+        }
+        else
+        {
+            int nSource, nDestination;
+            GetSel(nSource, nDestination);
+            //æ­¤æ™‚é¸æ“‡å…¨éƒ¨å…§å®¹
+            if (nSource == 0 && nDestination == StrBuff.GetLength())
+            {
+                CEdit::OnChar(nChar, nRepCnt, nFlags);
+            }
+            else
+            {
+            }
+        }
+    }
+    else if ((nChar >= '0' && nChar <= '9') || (nChar == 0x08) || (nChar == 0x10))
+    {
+        CEdit::OnChar(nChar, nRepCnt, nFlags);
+    }
+    // å…¶å®ƒçš„é”®,éƒ½ä¸éŸ¿æ‡‰
+    else
+    {
+    }
 }
